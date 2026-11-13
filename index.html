@@ -72,6 +72,52 @@ th{color:var(--yel);font-size:13px;text-transform:uppercase;letter-spacing:1px}
 footer{padding:48px 0 64px;border-top:1px solid var(--line);color:var(--mut);font-size:14px}
 .btn{display:inline-block;background:var(--red);color:#fff;text-decoration:none;font-weight:800;padding:12px 18px;border-radius:8px;margin:8px 8px 0 0}
 .btn.o{background:transparent;border:1px solid var(--line);color:var(--txt)}
+
+/* ---- responsive pass: mobile first ---- */
+nav .wrap{gap:4px;-webkit-mask-image:linear-gradient(90deg,#000 85%,transparent);mask-image:linear-gradient(90deg,#000 85%,transparent);padding-right:40px}
+nav a{padding:14px 10px;display:inline-block}
+nav .logo{margin-right:8px;flex-shrink:0}
+nav a.on{color:var(--txt);box-shadow:inset 0 -2px 0 var(--red)}
+.hero{padding:40px 0 36px}
+.kpis{grid-template-columns:1fr 1fr;gap:10px;margin-top:26px}
+.kpi{padding:14px}
+.kpi b{font-size:clamp(22px,6.4vw,30px)}
+.btn{padding:14px 20px;min-height:48px}
+section{padding:44px 0}
+.grid2,.grid3{align-items:start}
+.zoom{display:block;position:relative;cursor:zoom-in}
+.zoom:after{content:"⤢ tap to enlarge";position:absolute;right:8px;bottom:8px;background:rgba(11,11,16,.8);color:#fff;font-size:12px;font-weight:600;padding:4px 8px;border-radius:6px}
+.strip{overflow-x:auto;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;border-radius:12px}
+.strip img{min-width:760px;border-radius:12px}
+.hint{display:block;font-size:12px;color:var(--mut);padding:6px 4px 0}
+.fs .bar{font-size:13px;padding:0 10px}
+/* campaign table → cards on phones */
+@media(max-width:640px){
+ .stack table,.stack tbody,.stack tr,.stack td{display:block;width:100%}
+ .stack tr:first-child{display:none}
+ .stack tr{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:6px 14px;margin-bottom:10px}
+ .stack td{border:0;padding:6px 0}
+ .stack td:before{content:attr(data-l);display:block;color:var(--yel);font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase}
+}
+@media(min-width:641px){.hint{display:none}.strip img{min-width:0}}
+@media(min-width:760px){.hero{padding:64px 0 48px}section{padding:64px 0}.kpis{grid-template-columns:repeat(4,1fr)}}
+/* desktop */
+@media(min-width:1024px){
+ .wrap{max-width:1180px;padding:0 32px}
+ nav .wrap{-webkit-mask-image:none;mask-image:none;padding-right:32px}
+ .hero .wrap{display:grid;grid-template-columns:1.25fr 1fr;gap:20px 48px;align-items:center}
+ .hero .tag,.hero h1,.hero .lead,.hero .meta,.hero .cta{grid-column:1}
+ .hero .kpis{grid-column:2;grid-row:1/span 5;grid-template-columns:1fr 1fr;margin:0;gap:14px}
+ .kpi{padding:22px}.kpi b{font-size:34px}
+ h1{font-size:64px}
+ section > .wrap > p,section > .wrap > ul{max-width:780px}
+ .zoom:after{content:"⤢ open full size"}
+ .vid{max-width:none}
+}
+.fs .bar{min-width:max-content}
+section{scroll-margin-top:52px}
+@media(min-width:1024px){.hero .tag{justify-self:start}#product figure{max-width:900px;margin-left:auto;margin-right:auto}}
+@media(hover:hover){.zoom:hover img{outline:2px solid var(--red)}.c:hover{border-color:#44444f}}
 </style>
 </head>
 <body>
@@ -91,7 +137,7 @@ footer{padding:48px 0 64px;border-top:1px solid var(--line);color:var(--mut);fon
 <div class="kpi"><b>9.3s → 3.1s</b><small>landing page load on mobile</small></div>
 <div class="kpi"><b>3% → 43%</b><small>orders paid: ₹60 shipping vs free delivery</small></div>
 </div>
-<p style="margin-top:22px"><a class="btn" href="https://github.com/axankit/lodsclub-growth-case-study">View the repo</a><a class="btn o" href="https://lodsclub.com/anime/">Live landing page</a></p>
+<p class="cta" style="margin-top:22px"><a class="btn" href="https://github.com/axankit/lodsclub-growth-case-study">View the repo</a><a class="btn o" href="https://lodsclub.com/anime/">Live landing page</a></p>
 </div></header>
 
 <section id="problem"><div class="wrap">
@@ -123,15 +169,15 @@ footer{padding:48px 0 64px;border-top:1px solid var(--line);color:var(--mut);fon
 <li>MRP made consistent (₹500 → ₹499 on 40 cases) so every case reads "₹249 · ₹499 · 50% OFF".</li>
 </ul>
 <div class="grid2">
-<figure class="ba"><span class="lbl">Before</span><img loading="lazy" src="assets/screenshots/02-checkout-before.jpg" alt="Checkout before"><figcaption>Shipping shown only at the end</figcaption></figure>
-<figure class="ba"><span class="lbl g">After</span><img loading="lazy" src="assets/screenshots/03-checkout-after-free-delivery-upi.jpg" alt="Checkout after"><figcaption>Free delivery + UPI first</figcaption></figure>
+<figure class="ba"><span class="lbl">Before</span><a class="zoom" href="assets/screenshots/02-checkout-before.jpg" target="_blank" rel="noopener"><img loading="lazy" src="assets/screenshots/02-checkout-before.jpg" alt="Checkout before"></a><figcaption>Shipping shown only at the end</figcaption></figure>
+<figure class="ba"><span class="lbl g">After</span><a class="zoom" href="assets/screenshots/03-checkout-after-free-delivery-upi.jpg" target="_blank" rel="noopener"><img loading="lazy" src="assets/screenshots/03-checkout-after-free-delivery-upi.jpg" alt="Checkout after"></a><figcaption>Free delivery + UPI first</figcaption></figure>
 </div>
 </div></section>
 
 <section id="landing"><div class="wrap">
 <h2 class="dg"><em>03 · LANDING PAGE /ANIME/</em>A page that continues the ad.</h2>
 <p>Ads used to drop people on a generic category page sorted A–Z. I built a dedicated anime landing page — dark stage, speed lines, Japanese titles, every series with real product cut-outs, Google reviews and an FAQ.</p>
-<figure><img loading="lazy" src="assets/screenshots/10-landing-desktop.jpg" alt="Anime landing page desktop"><figcaption>/anime/ on desktop</figcaption></figure>
+<figure><a class="zoom" href="assets/screenshots/10-landing-desktop.jpg" target="_blank" rel="noopener"><img loading="lazy" src="assets/screenshots/10-landing-desktop.jpg" alt="Anime landing page desktop"></a><figcaption>/anime/ on desktop</figcaption></figure>
 <h3>Then I made it 3× faster</h3>
 <p>WordPress was loading the whole theme (a 1.1 MB stylesheet, sliders, icon packs) on a page that used none of it. A small PHP rule now strips those files on this page only, keeping the pixel, analytics and WhatsApp, lazy-loading lower images and preloading the hero.</p>
 <div class="tw"><table><tr><th>Pixel 7</th><th>Before</th><th>After</th></tr>
@@ -139,8 +185,8 @@ footer{padding:48px 0 64px;border-top:1px solid var(--line);color:var(--mut);fon
 <tr><td>Largest content visible</td><td>4.6 s</td><td><b>2.1 s</b></td></tr>
 <tr><td>Page weight</td><td>5.0 MB</td><td><b>1.8 MB</b></td></tr></table></div>
 <div class="grid2">
-<figure><img loading="lazy" src="assets/screenshots/11-landing-mobile.jpg" alt="Landing mobile"><figcaption>Mobile</figcaption></figure>
-<figure><img loading="lazy" src="assets/screenshots/12-landing-speed-before-after.jpg" alt="Speed before after"><figcaption>Before (left) vs after (right): same design, a third of the weight</figcaption></figure>
+<figure><a class="zoom" href="assets/screenshots/11-landing-mobile.jpg" target="_blank" rel="noopener"><img loading="lazy" src="assets/screenshots/11-landing-mobile.jpg" alt="Landing mobile"></a><figcaption>Mobile</figcaption></figure>
+<figure><a class="zoom" href="assets/screenshots/12-landing-speed-before-after.jpg" target="_blank" rel="noopener"><img loading="lazy" src="assets/screenshots/12-landing-speed-before-after.jpg" alt="Speed before after"></a><figcaption>Before (left) vs after (right): same design, a third of the weight</figcaption></figure>
 </div>
 </div></section>
 
@@ -148,13 +194,13 @@ footer{padding:48px 0 64px;border-top:1px solid var(--line);color:var(--mut);fon
 <h2 class="dg"><em>04 · SHOP REDESIGN</em>Bestsellers first, by series.</h2>
 <p>Elementor Theme Builder template with a live WooCommerce Store API grid: series filter chips with live counts, bestseller sort, cut-outs on a dark stage, and a fix for a mobile-only blank page caused by a flex widget stretching to 2,518 px.</p>
 <div class="grid2">
-<figure class="ba"><span class="lbl">Before</span><img loading="lazy" src="assets/screenshots/04-category-before.jpg" alt="Category before"></figure>
-<figure class="ba"><span class="lbl g">After</span><img loading="lazy" src="assets/screenshots/05-category-after-top.jpg" alt="Category after"></figure>
+<figure class="ba"><span class="lbl">Before</span><a class="zoom" href="assets/screenshots/04-category-before.jpg" target="_blank" rel="noopener"><img loading="lazy" src="assets/screenshots/04-category-before.jpg" alt="Category before"></a></figure>
+<figure class="ba"><span class="lbl g">After</span><a class="zoom" href="assets/screenshots/05-category-after-top.jpg" target="_blank" rel="noopener"><img loading="lazy" src="assets/screenshots/05-category-after-top.jpg" alt="Category after"></a></figure>
 </div>
 <div class="grid3">
-<figure><img loading="lazy" src="assets/screenshots/06-category-after-series-filter.jpg" alt="Series filter"><figcaption>Series filter</figcaption></figure>
-<figure><img loading="lazy" src="assets/screenshots/07-category-after-grid.jpg" alt="Grid"><figcaption>Grid + offer strip</figcaption></figure>
-<figure><img loading="lazy" src="assets/screenshots/08-category-after-mobile.jpg" alt="Mobile"><figcaption>Mobile, text below the art</figcaption></figure>
+<figure><a class="zoom" href="assets/screenshots/06-category-after-series-filter.jpg" target="_blank" rel="noopener"><img loading="lazy" src="assets/screenshots/06-category-after-series-filter.jpg" alt="Series filter"></a><figcaption>Series filter</figcaption></figure>
+<figure><a class="zoom" href="assets/screenshots/07-category-after-grid.jpg" target="_blank" rel="noopener"><img loading="lazy" src="assets/screenshots/07-category-after-grid.jpg" alt="Grid"></a><figcaption>Grid + offer strip</figcaption></figure>
+<figure><a class="zoom" href="assets/screenshots/08-category-after-mobile.jpg" target="_blank" rel="noopener"><img loading="lazy" src="assets/screenshots/08-category-after-mobile.jpg" alt="Mobile"></a><figcaption>Mobile, text below the art</figcaption></figure>
 </div>
 </div></section>
 
@@ -166,7 +212,7 @@ footer{padding:48px 0 64px;border-top:1px solid var(--line);color:var(--mut);fon
 <div class="c"><span class="n">3</span><h4>Sticky Buy now</h4><p>"Choose phone" until picked, then straight to checkout.</p></div>
 <div class="c"><span class="n">4</span><h4>Trust + case view</h4><p>Badges, Google reviews, the case floating on the anime stage.</p></div>
 </div>
-<figure style="margin-top:18px"><img loading="lazy" src="assets/screenshots/16-product-page-before-after.jpg" alt="Product page before vs after"><figcaption>Before vs live, on a phone</figcaption></figure>
+<figure style="margin-top:18px"><a class="zoom" href="assets/screenshots/16-product-page-before-after.jpg" target="_blank" rel="noopener"><img loading="lazy" src="assets/screenshots/16-product-page-before-after.jpg" alt="Product page before vs after"></a><figcaption>Before vs live, on a phone</figcaption></figure>
 <p>Shipped as one reversible snippet: preview link first, tested on iPhone 13, Pixel 7 and desktop (model saved to the cart, checkout reached, no errors), then switched on for everyone.</p>
 </div></section>
 
@@ -178,9 +224,9 @@ footer{padding:48px 0 64px;border-top:1px solid var(--line);color:var(--mut);fon
 <li>FAQPage schema + a visible FAQ; a fact-dense "about" block written so ChatGPT, Perplexity and Google AI Overviews can quote it.</li>
 </ul>
 <div class="grid3">
-<figure><img loading="lazy" src="assets/screenshots/13-seo-share-image-landing.jpg" alt="Share image landing"><figcaption>Landing share image</figcaption></figure>
-<figure><img loading="lazy" src="assets/screenshots/14-seo-share-image-category.jpg" alt="Share image category"><figcaption>Category share image</figcaption></figure>
-<figure><img loading="lazy" src="assets/screenshots/15-seo-faq-mobile.jpg" alt="FAQ"><figcaption>Answer-ready FAQ</figcaption></figure>
+<figure><a class="zoom" href="assets/screenshots/13-seo-share-image-landing.jpg" target="_blank" rel="noopener"><img loading="lazy" src="assets/screenshots/13-seo-share-image-landing.jpg" alt="Share image landing"></a><figcaption>Landing share image</figcaption></figure>
+<figure><a class="zoom" href="assets/screenshots/14-seo-share-image-category.jpg" target="_blank" rel="noopener"><img loading="lazy" src="assets/screenshots/14-seo-share-image-category.jpg" alt="Share image category"></a><figcaption>Category share image</figcaption></figure>
+<figure><a class="zoom" href="assets/screenshots/15-seo-faq-mobile.jpg" target="_blank" rel="noopener"><img loading="lazy" src="assets/screenshots/15-seo-faq-mobile.jpg" alt="FAQ"></a><figcaption>Answer-ready FAQ</figcaption></figure>
 </div>
 </div></section>
 
@@ -199,18 +245,18 @@ footer{padding:48px 0 64px;border-top:1px solid var(--line);color:var(--mut);fon
 <figure><img loading="lazy" src="assets/creatives/reel_keyframes.jpg" alt="Reel key frames"><figcaption>Key frames, text kept clear of the Reels caption zone</figcaption></figure>
 </div>
 <h3>Carousel C05 — "Choose your arc"</h3>
-<figure><img loading="lazy" src="assets/creatives/C05_Arc_preview.jpg" alt="C05 carousel"></figure>
+<figure><div class="strip"><img loading="lazy" src="assets/creatives/C05_Arc_preview.jpg" alt="C05 carousel"></div><span class="hint">← swipe to see all 7 cards →</span></figure>
 <h3>Carousel C06 — "Top 5 bestsellers" (real sales rank)</h3>
-<figure><img loading="lazy" src="assets/creatives/C06_Top5_preview.jpg" alt="C06 carousel"></figure>
+<figure><div class="strip"><img loading="lazy" src="assets/creatives/C06_Top5_preview.jpg" alt="C06 carousel"></div><span class="hint">← swipe to see all 7 cards →</span></figure>
 </div></section>
 
 <section id="campaign"><div class="wrap">
 <h2 class="dg"><em>09 · META CAMPAIGN</em>Optimise for the thing you want.</h2>
 <p>The previous campaign optimised for checkouts — and got checkouts. The relaunch optimises for <b>Purchase</b>, on ₹3,000 over 7 days.</p>
-<div class="tw"><table>
+<div class="tw stack"><table>
 <tr><th>Ad set</th><th>Budget</th><th>Audience</th><th>Ads</th></tr>
-<tr><td><b>New buyers</b></td><td>₹2,300</td><td>India, 18–30 as a suggestion, Advantage+ audience</td><td>New 15 s reel · proven reel · C05 carousel → /anime/</td></tr>
-<tr><td><b>Warm people</b></td><td>₹700</td><td>Cart/checkout no-buy 30d, visitors 30d, IG engagers 60d</td><td>C06 Top-5 carousel → product pages · reel with "still thinking?" copy</td></tr>
+<tr><td data-l="Ad set"><b>New buyers</b></td><td data-l="Budget">₹2,300</td><td data-l="Audience">India, 18–30 as a suggestion, Advantage+ audience</td><td data-l="Ads">New 15 s reel · proven reel · C05 carousel → /anime/</td></tr>
+<tr><td data-l="Ad set"><b>Warm people</b></td><td data-l="Budget">₹700</td><td data-l="Audience">Cart/checkout no-buy 30d, visitors 30d, IG engagers 60d</td><td data-l="Ads">C06 Top-5 carousel → product pages · reel with "still thinking?" copy</td></tr>
 </table></div>
 <ul>
 <li>Lifetime budgets with a fixed end date: even pacing, hard cap.</li>
@@ -237,5 +283,6 @@ footer{padding:48px 0 64px;border-top:1px solid var(--line);color:var(--mut);fon
 <p><b style="color:var(--txt)">Ankit Ranjan</b> · Growth &amp; performance marketing</p>
 <p>Full write-ups, code and every before/after are in the <a href="https://github.com/axankit/lodsclub-growth-case-study">GitHub repo</a>. Shared with the client's permission; account IDs, tracking URLs and customer details removed.</p>
 </div></footer>
+<script>(function(){var l=[].slice.call(document.querySelectorAll('nav a[href^="#"]'));if(!('IntersectionObserver'in window))return;var o=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){l.forEach(function(a){var on=a.getAttribute('href')=='#'+x.target.id;a.classList.toggle('on',on);if(on&&a.scrollIntoView&&innerWidth<1024){var n=a.parentNode;n.scrollTo({left:a.offsetLeft-n.clientWidth/2+a.clientWidth/2,behavior:'smooth'})}})}})},{rootMargin:'-45% 0px -50% 0px'});l.forEach(function(a){var t=document.querySelector(a.getAttribute('href'));t&&o.observe(t)})})();</script>
 </body>
 </html>
