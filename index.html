@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LodsClub Growth Case Study</title>
+<meta name="description" content="How cheap Meta ad clicks were turned into a funnel that can convert: checkout, landing page, product page, speed, tracking, creatives and a purchase-optimised campaign for an Indian anime phone-case brand.">
+<meta property="og:title" content="LodsClub — From cheap clicks to paying customers">
+<meta property="og:description" content="Meta performance marketing + conversion optimisation case study.">
+<meta property="og:image" content="assets/screenshots/16-product-page-before-after.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b0b10;--card:#15151c;--line:#2a2a34;--txt:#f5f3ee;--mut:#a8a6b0;--red:#ff2d3d;--yel:#ffd400;--grn:#2fbf71}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--txt);font-family:Outfit,system-ui,sans-serif;line-height:1.6;font-size:17px;overflow-x:hidden}
+img,video{max-width:100%;display:block;border-radius:12px}
+a{color:var(--yel)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+.dg{font-family:'Dela Gothic One',sans-serif;font-weight:400;line-height:1.05}
+nav{position:sticky;top:0;z-index:10;background:rgba(11,11,16,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;gap:18px;align-items:center;height:56px;overflow-x:auto;white-space:nowrap;scrollbar-width:none}
+nav a{color:var(--mut);text-decoration:none;font-weight:600;font-size:14px}
+nav a:hover{color:var(--txt)}
+nav .logo{color:var(--txt);font-family:'Dela Gothic One';font-size:16px;margin-right:auto}
+nav .logo b{color:var(--red);font-weight:400}
+.hero{position:relative;padding:64px 0 48px;overflow:hidden}
+.hero:before{content:"";position:absolute;left:50%;top:40%;width:1600px;height:1600px;transform:translate(-50%,-50%);background:repeating-conic-gradient(from 0deg,rgba(255,255,255,.04) 0 1.4deg,transparent 1.4deg 7deg),radial-gradient(circle,rgba(255,45,61,.35),transparent 55%);z-index:-1}
+.tag{display:inline-block;background:var(--yel);color:#0b0b10;font-weight:800;font-size:13px;padding:4px 10px;letter-spacing:1px;text-transform:uppercase}
+h1{font-size:clamp(38px,8vw,78px);margin:18px 0 14px}
+h1 span{color:var(--red)}
+.lead{font-size:clamp(17px,2.3vw,21px);color:#dcdae2;max-width:720px}
+.meta{margin-top:18px;color:var(--mut);font-size:14px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:34px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+.kpi b{display:block;font-family:'Dela Gothic One';font-size:30px;color:var(--yel);font-weight:400}
+.kpi small{color:var(--mut);font-size:13px}
+section{padding:56px 0;border-top:1px solid var(--line)}
+h2{font-size:clamp(28px,5vw,44px);margin-bottom:10px}
+h2 em{font-style:normal;color:var(--yel);font-size:.45em;display:block;font-family:Outfit;font-weight:800;letter-spacing:2px;margin-bottom:6px}
+h3{font-size:20px;margin:22px 0 8px}
+p{margin:10px 0;color:#dcdae2}
+ul{margin:10px 0 10px 20px;color:#dcdae2}
+li{margin:4px 0}
+.funnel{display:flex;flex-direction:column;gap:8px;margin:22px 0}
+.fs{display:flex;align-items:center;gap:12px}
+.fs .bar{height:38px;background:linear-gradient(90deg,var(--red),#ff6a3d);border-radius:6px;display:flex;align-items:center;padding:0 12px;font-weight:800;font-size:14px;min-width:70px;white-space:nowrap}
+.fs .lab{color:var(--mut);font-size:14px}
+.fs.bad .bar{background:#44444f}
+.grid2{display:grid;grid-template-columns:1fr;gap:14px;margin:18px 0}
+.grid3{display:grid;grid-template-columns:1fr;gap:14px;margin:18px 0}
+@media(min-width:760px){.grid2{grid-template-columns:1fr 1fr}.grid3{grid-template-columns:repeat(3,1fr)}}
+figure{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px}
+figcaption{font-size:13px;color:var(--mut);padding:8px 4px 2px}
+.ba{position:relative}
+.ba .lbl{position:absolute;top:10px;left:10px;background:var(--red);color:#fff;font-weight:800;font-size:12px;padding:3px 8px;border-radius:4px}
+.ba .lbl.g{background:var(--grn)}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:15px}
+th,td{text-align:left;padding:10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--yel);font-size:13px;text-transform:uppercase;letter-spacing:1px}
+.tw{overflow-x:auto}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-top:18px}
+.c{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+.c .n{font-family:'Dela Gothic One';color:var(--red);font-size:22px}
+.c h4{font-size:17px;margin:4px 0 6px}
+.c p{font-size:15px;margin:0;color:var(--mut)}
+.pill{display:inline-block;font-size:12px;font-weight:800;padding:3px 9px;border-radius:20px;margin-right:6px}
+.p-r{background:rgba(255,45,61,.18);color:#ff8a94}.p-a{background:rgba(255,212,0,.16);color:var(--yel)}.p-g{background:rgba(47,191,113,.18);color:#7fe0aa}
+.vid{max-width:360px;margin:0 auto}
+.quote{border-left:4px solid var(--red);padding:6px 16px;margin:18px 0;font-size:19px;color:var(--txt)}
+footer{padding:48px 0 64px;border-top:1px solid var(--line);color:var(--mut);font-size:14px}
+.btn{display:inline-block;background:var(--red);color:#fff;text-decoration:none;font-weight:800;padding:12px 18px;border-radius:8px;margin:8px 8px 0 0}
+.btn.o{background:transparent;border:1px solid var(--line);color:var(--txt)}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+<span class="logo">LODS<b>CLUB</b> case study</span>
+<a href="#problem">Problem</a><a href="#checkout">Checkout</a><a href="#landing">Landing</a><a href="#shop">Shop</a><a href="#product">Product</a><a href="#seo">SEO/GEO</a><a href="#tracking">Tracking</a><a href="#creative">Creatives</a><a href="#campaign">Campaign</a><a href="#next">Next</a>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+<span class="tag">Freelance · Oct–Nov 2026</span>
+<h1 class="dg">From cheap clicks to <span>paying customers.</span></h1>
+<p class="lead">Meta performance marketing and conversion optimisation for <b>LodsClub</b>, an Indian D2C brand selling metal-back anime phone cases at ₹249. The ads worked. The website didn't. So I rebuilt the path from ad click to UPI payment, then relaunched the ads into it.</p>
+<p class="meta">Role: growth marketer — ads, website, tracking, creative · Stack: Meta Ads, WooCommerce, Elementor, Google Sheets + Apps Script, Playwright, ffmpeg</p>
+<div class="kpis">
+<div class="kpi"><b>₹1.79</b><small>cost per click on the best ad — traffic was never the problem</small></div>
+<div class="kpi"><b>4 / 38</b><small>orders actually paid before the fixes</small></div>
+<div class="kpi"><b>9.3s → 3.1s</b><small>landing page load on mobile</small></div>
+<div class="kpi"><b>3% → 43%</b><small>orders paid: ₹60 shipping vs free delivery</small></div>
+</div>
+<p style="margin-top:22px"><a class="btn" href="https://github.com/axankit/lodsclub-growth-case-study">View the repo</a><a class="btn o" href="https://lodsclub.com/anime/">Live landing page</a></p>
+</div></header>
+
+<section id="problem"><div class="wrap">
+<h2 class="dg"><em>01 · DIAGNOSIS</em>The ads were fine. The funnel leaked.</h2>
+<p>The best reel delivered 182k impressions at a 1.26% CTR. People clicked, browsed and added to cart — and then almost nobody paid.</p>
+<div class="funnel">
+<div class="fs"><div class="bar" style="width:100%">2,066 link clicks</div></div>
+<div class="fs"><div class="bar" style="width:78%">1,609 landing views</div></div>
+<div class="fs"><div class="bar" style="width:34%">219 add to cart</div></div>
+<div class="fs"><div class="bar" style="width:24%">143 checkouts</div></div>
+<div class="fs bad"><div class="bar" style="width:8%">3</div><span class="lab">purchases</span></div>
+</div>
+<h3>What I found</h3>
+<ul>
+<li><b>Surprise shipping:</b> ₹60 revealed only after the full address. With it, 1 of 31 orders got paid; with free delivery, 3 of 7.</li>
+<li><b>Cache bug:</b> some mobile visitors from ads were served the homepage instead of the page the ad promised. I wrote a plain-language handover for the hosting team; they fixed it.</li>
+<li><b>Product page:</b> price below the fold, phone picker buried, 126 Samsung models in one dropdown, one photo, "Reviews (0)".</li>
+<li><b>Speed:</b> 5–7 MB pages, ~185 requests.</li>
+<li><b>No visibility:</b> no way to see which step lost people.</li>
+</ul>
+<p class="quote">Decision: fix the funnel first, relaunch ads second. Cash on delivery was ruled out by the client, so every change had to make prepaid UPI feel safe and simple.</p>
+</div></section>
+
+<section id="checkout"><div class="wrap">
+<h2 class="dg"><em>02 · CHECKOUT &amp; OFFER</em>Kill the surprise.</h2>
+<ul>
+<li>Free delivery until the first 20 new orders, shown <i>before</i> checkout everywhere (ticker, product page, landing).</li>
+<li>UPI-first wording at payment; phone number made required for couriers.</li>
+<li>MRP made consistent (₹500 → ₹499 on 40 cases) so every case reads "₹249 · ₹499 · 50% OFF".</li>
+</ul>
+<div class="grid2">
+<figure class="ba"><span class="lbl">Before</span><img loading="lazy" src="assets/screenshots/02-checkout-before.jpg" alt="Checkout before"><figcaption>Shipping shown only at the end</figcaption></figure>
+<figure class="ba"><span class="lbl g">After</span><img loading="lazy" src="assets/screenshots/03-checkout-after-free-delivery-upi.jpg" alt="Checkout after"><figcaption>Free delivery + UPI first</figcaption></figure>
+</div>
+</div></section>
+
+<section id="landing"><div class="wrap">
+<h2 class="dg"><em>03 · LANDING PAGE /ANIME/</em>A page that continues the ad.</h2>
+<p>Ads used to drop people on a generic category page sorted A–Z. I built a dedicated anime landing page — dark stage, speed lines, Japanese titles, every series with real product cut-outs, Google reviews and an FAQ.</p>
+<figure><img loading="lazy" src="assets/screenshots/10-landing-desktop.jpg" alt="Anime landing page desktop"><figcaption>/anime/ on desktop</figcaption></figure>
+<h3>Then I made it 3× faster</h3>
+<p>WordPress was loading the whole theme (a 1.1 MB stylesheet, sliders, icon packs) on a page that used none of it. A small PHP rule now strips those files on this page only, keeping the pixel, analytics and WhatsApp, lazy-loading lower images and preloading the hero.</p>
+<div class="tw"><table><tr><th>Pixel 7</th><th>Before</th><th>After</th></tr>
+<tr><td>Full load</td><td>9.3 s</td><td><b>3.1 s</b></td></tr>
+<tr><td>Largest content visible</td><td>4.6 s</td><td><b>2.1 s</b></td></tr>
+<tr><td>Page weight</td><td>5.0 MB</td><td><b>1.8 MB</b></td></tr></table></div>
+<div class="grid2">
+<figure><img loading="lazy" src="assets/screenshots/11-landing-mobile.jpg" alt="Landing mobile"><figcaption>Mobile</figcaption></figure>
+<figure><img loading="lazy" src="assets/screenshots/12-landing-speed-before-after.jpg" alt="Speed before after"><figcaption>Before (left) vs after (right): same design, a third of the weight</figcaption></figure>
+</div>
+</div></section>
+
+<section id="shop"><div class="wrap">
+<h2 class="dg"><em>04 · SHOP REDESIGN</em>Bestsellers first, by series.</h2>
+<p>Elementor Theme Builder template with a live WooCommerce Store API grid: series filter chips with live counts, bestseller sort, cut-outs on a dark stage, and a fix for a mobile-only blank page caused by a flex widget stretching to 2,518 px.</p>
+<div class="grid2">
+<figure class="ba"><span class="lbl">Before</span><img loading="lazy" src="assets/screenshots/04-category-before.jpg" alt="Category before"></figure>
+<figure class="ba"><span class="lbl g">After</span><img loading="lazy" src="assets/screenshots/05-category-after-top.jpg" alt="Category after"></figure>
+</div>
+<div class="grid3">
+<figure><img loading="lazy" src="assets/screenshots/06-category-after-series-filter.jpg" alt="Series filter"><figcaption>Series filter</figcaption></figure>
+<figure><img loading="lazy" src="assets/screenshots/07-category-after-grid.jpg" alt="Grid"><figcaption>Grid + offer strip</figcaption></figure>
+<figure><img loading="lazy" src="assets/screenshots/08-category-after-mobile.jpg" alt="Mobile"><figcaption>Mobile, text below the art</figcaption></figure>
+</div>
+</div></section>
+
+<section id="product"><div class="wrap">
+<h2 class="dg"><em>05 · PRODUCT PAGE V2</em>Pick your phone in two taps.</h2>
+<div class="cards">
+<div class="c"><span class="n">1</span><h4>Price on the first screen</h4><p>₹249, crossed MRP, 50% OFF, free delivery, UPI, free keyring.</p></div>
+<div class="c"><span class="n">2</span><h4>Brand tiles + model search</h4><p>Replaces a 126-item dropdown. Type "a15", tap, done.</p></div>
+<div class="c"><span class="n">3</span><h4>Sticky Buy now</h4><p>"Choose phone" until picked, then straight to checkout.</p></div>
+<div class="c"><span class="n">4</span><h4>Trust + case view</h4><p>Badges, Google reviews, the case floating on the anime stage.</p></div>
+</div>
+<figure style="margin-top:18px"><img loading="lazy" src="assets/screenshots/16-product-page-before-after.jpg" alt="Product page before vs after"><figcaption>Before vs live, on a phone</figcaption></figure>
+<p>Shipped as one reversible snippet: preview link first, tested on iPhone 13, Pixel 7 and desktop (model saved to the cart, checkout reached, no errors), then switched on for everyone.</p>
+</div></section>
+
+<section id="seo"><div class="wrap">
+<h2 class="dg"><em>06 · SEO + GEO</em>Findable by Google and by AI.</h2>
+<ul>
+<li>Unique titles, descriptions, canonicals, Open Graph + Twitter cards.</li>
+<li>Custom 1200×630 share images so links look right on WhatsApp and Instagram.</li>
+<li>FAQPage schema + a visible FAQ; a fact-dense "about" block written so ChatGPT, Perplexity and Google AI Overviews can quote it.</li>
+</ul>
+<div class="grid3">
+<figure><img loading="lazy" src="assets/screenshots/13-seo-share-image-landing.jpg" alt="Share image landing"><figcaption>Landing share image</figcaption></figure>
+<figure><img loading="lazy" src="assets/screenshots/14-seo-share-image-category.jpg" alt="Share image category"><figcaption>Category share image</figcaption></figure>
+<figure><img loading="lazy" src="assets/screenshots/15-seo-faq-mobile.jpg" alt="FAQ"><figcaption>Answer-ready FAQ</figcaption></figure>
+</div>
+</div></section>
+
+<section id="tracking"><div class="wrap">
+<h2 class="dg"><em>07 · TRACKING</em>See every step.</h2>
+<p>The pixel tells you <i>what</i> happened, not <i>where</i> people gave up. A lightweight script sends one row per event to a Google Sheet:</p>
+<p><span class="pill p-a">Page view</span><span class="pill p-a">Product view</span><span class="pill p-a">Phone selected</span><span class="pill p-a">Add to cart</span><span class="pill p-a">Checkout</span><span class="pill p-a">Place order</span><span class="pill p-a">Payment page</span><span class="pill p-g">WhatsApp click</span></p>
+<p>With page type, scroll depth, time on page and UTM source, internal traffic excluded. Every new ad link carries <code>utm_content</code> = ad name, so each visitor maps to the exact creative.</p>
+</div></section>
+
+<section id="creative"><div class="wrap">
+<h2 class="dg"><em>08 · CREATIVES</em>Generated in code.</h2>
+<p>All creatives were built from the store's own cut-outs and anime art, rendered as HTML frames with Playwright and encoded with ffmpeg — repeatable, on-brand, no stock assets.</p>
+<div class="grid2">
+<div class="vid"><video controls muted playsinline preload="metadata" poster="assets/creatives/reel_thumbnail.jpg" src="assets/video/lodsclub-anime-reel-15s.mp4"></video><figcaption style="color:var(--mut);font-size:13px;padding:8px 4px">15 s Reel: hook → 6 series → 73 designs → ₹249 offer</figcaption></div>
+<figure><img loading="lazy" src="assets/creatives/reel_keyframes.jpg" alt="Reel key frames"><figcaption>Key frames, text kept clear of the Reels caption zone</figcaption></figure>
+</div>
+<h3>Carousel C05 — "Choose your arc"</h3>
+<figure><img loading="lazy" src="assets/creatives/C05_Arc_preview.jpg" alt="C05 carousel"></figure>
+<h3>Carousel C06 — "Top 5 bestsellers" (real sales rank)</h3>
+<figure><img loading="lazy" src="assets/creatives/C06_Top5_preview.jpg" alt="C06 carousel"></figure>
+</div></section>
+
+<section id="campaign"><div class="wrap">
+<h2 class="dg"><em>09 · META CAMPAIGN</em>Optimise for the thing you want.</h2>
+<p>The previous campaign optimised for checkouts — and got checkouts. The relaunch optimises for <b>Purchase</b>, on ₹3,000 over 7 days.</p>
+<div class="tw"><table>
+<tr><th>Ad set</th><th>Budget</th><th>Audience</th><th>Ads</th></tr>
+<tr><td><b>New buyers</b></td><td>₹2,300</td><td>India, 18–30 as a suggestion, Advantage+ audience</td><td>New 15 s reel · proven reel · C05 carousel → /anime/</td></tr>
+<tr><td><b>Warm people</b></td><td>₹700</td><td>Cart/checkout no-buy 30d, visitors 30d, IG engagers 60d</td><td>C06 Top-5 carousel → product pages · reel with "still thinking?" copy</td></tr>
+</table></div>
+<ul>
+<li>Lifetime budgets with a fixed end date: even pacing, hard cap.</li>
+<li>Few ads, so each one gets enough data to learn.</li>
+<li>Old campaign paused before the spend limit was lifted.</li>
+<li>Rules: day 1–2 hands off · day 3 pause any ad with ₹200 spent and 0 carts · day 5 move budget to the winner.</li>
+</ul>
+<p class="quote">Results: campaign live 13 → 20 Nov 2026. Numbers will be added here when it ends.</p>
+</div></section>
+
+<section id="next"><div class="wrap">
+<h2 class="dg"><em>10 · NEXT</em>The whole-site roadmap.</h2>
+<div class="cards">
+<div class="c"><span class="pill p-r">Fix first</span><h4>Homepage rebuild</h4><p>It still leads with a T-shirt hero and leftover "flyer printing" demo text.</p></div>
+<div class="c"><span class="pill p-r">Fix first</span><h4>Shop by your phone</h4><p>Pick the phone first, see every case that fits.</p></div>
+<div class="c"><span class="pill p-r">Fix first</span><h4>Site-wide SEO basics</h4><p>Titles, descriptions, H1s and share images on every page.</p></div>
+<div class="c"><span class="pill p-a">Next</span><h4>Reviews engine</h4><p>Automatic review request after delivery → real stars.</p></div>
+<div class="c"><span class="pill p-a">Next</span><h4>2 for ₹449 bundle</h4><p>Raise order value on a ₹249 product.</p></div>
+<div class="c"><span class="pill p-a">Next</span><h4>GEO</h4><p>Brand facts + FAQ schema, llms.txt, buying guides.</p></div>
+</div>
+</div></section>
+
+<footer><div class="wrap">
+<p><b style="color:var(--txt)">Ankit Ranjan</b> · Growth &amp; performance marketing</p>
+<p>Full write-ups, code and every before/after are in the <a href="https://github.com/axankit/lodsclub-growth-case-study">GitHub repo</a>. Shared with the client's permission; account IDs, tracking URLs and customer details removed.</p>
+</div></footer>
+</body>
+</html>

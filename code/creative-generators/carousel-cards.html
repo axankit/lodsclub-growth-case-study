@@ -1,0 +1,94 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="node_modules/@fontsource/dela-gothic-one/index.css">
+<link rel="stylesheet" href="node_modules/@fontsource/outfit/400.css">
+<link rel="stylesheet" href="node_modules/@fontsource/outfit/800.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1080px;overflow:hidden;background:#0b0b10}
+#c{position:relative;width:1080px;height:1080px;overflow:hidden;font-family:'Outfit',sans-serif;color:#fff;background:#0b0b10}
+.L{position:absolute;inset:0}
+.dg{font-family:'Dela Gothic One',sans-serif;font-weight:400}
+.rays{position:absolute;left:-540px;top:-540px;width:2160px;height:2160px;background:repeating-conic-gradient(from 3deg at 50% 50%,rgba(255,255,255,.055) 0 1.4deg,transparent 1.4deg 7deg)}
+.glow{background:radial-gradient(circle at 50% 50%,rgba(255,45,61,.55) 0,rgba(255,45,61,.12) 38%,transparent 64%)}
+.case{position:absolute;filter:drop-shadow(0 34px 30px rgba(0,0,0,.75))}
+.tick{position:absolute;left:0;right:0;height:62px;background:#ffd400;color:#0b0b10;display:flex;align-items:center;justify-content:center;gap:26px;white-space:nowrap;font-family:'Dela Gothic One';font-size:27px}
+.logo{font-family:'Dela Gothic One';font-size:34px;letter-spacing:1px}.logo b{color:#ff2d3d;font-weight:400}
+.burst{position:absolute;background:#ffd400;color:#0b0b10;display:flex;flex-direction:column;align-items:center;justify-content:center;clip-path:polygon(50% 0%,59% 13%,74% 5%,76% 21%,92% 19%,86% 34%,100% 41%,88% 52%,98% 65%,82% 69%,84% 85%,68% 82%,61% 97%,50% 86%,39% 97%,32% 82%,16% 85%,18% 69%,2% 65%,12% 52%,0% 41%,14% 34%,8% 19%,24% 21%,26% 5%,41% 13%)}
+.ep{display:inline-block;background:#ffd400;color:#0b0b10;font-family:'Dela Gothic One';font-size:30px;padding:6px 16px}
+.btn{display:inline-flex;align-items:center;justify-content:center;background:#ff2d3d;color:#fff;font-family:'Dela Gothic One';border-radius:10px}
+.wbtn{display:inline-flex;align-items:center;background:#fff;color:#0b0b10;font-weight:800;border-radius:8px}
+.chip{display:inline-block;border:2.5px solid rgba(255,255,255,.8);border-radius:40px;padding:8px 20px;margin:6px 4px;font-weight:800;font-size:27px}
+.swipe{position:absolute;right:44px;bottom:40px;font-weight:800;font-size:30px;color:#ffd400}
+/* product style */
+.stage{position:absolute;left:0;right:0;top:0;height:700px;overflow:hidden;background:#0d0d12}
+.panel{position:absolute;left:0;right:0;bottom:0;height:380px;background:#fff;color:#111;padding:34px 52px}
+.pill{background:#e7f6ee;color:#13824a;font-weight:800;font-size:28px;padding:6px 14px;border-radius:6px}
+.perk{font-weight:800;font-size:27px;color:#1b1b1b;margin-right:22px}.perk:before{content:"✓ ";color:#13824a}
+.tag{position:absolute;background:#e11d2a;color:#fff;font-weight:800;font-size:30px;padding:8px 16px;border-radius:7px}
+.rank{position:absolute;font-family:'Dela Gothic One';color:#ffd400;font-size:110px;line-height:1;opacity:.95}
+</style></head><body><div id="c"></div>
+<script>
+const U='a/',C=n=>U+'lp-anime-'+n+'.webp';
+const ARCS=[
+ {ep:'EP.01',jp:'ナルト',en:'NARUTO',short:'Naruto',line:'For every ninja who never gave up.',art:'six-paths-sage',c:'six-paths-sage',c2:'team-7'},
+ {ep:'EP.02',jp:'呪術廻戦',en:'JUJUTSU KAISEN',short:'JJK',line:'Special-grade style for your phone.',art:'legendary-special-grade-sorcerer',c:'toji-fushiguro',c2:'being-saturo'},
+ {ep:'EP.03',jp:'鬼滅の刃',en:'DEMON SLAYER',short:'Demon Slayer',line:'Breathe. Focus. Slay.',art:'infinity-castle',c:'infinity-castle',c2:'kamado-aura'},
+ {ep:'EP.04',jp:'ワンピース',en:'ONE PIECE',short:'One Piece',line:'Set sail with the Straw Hats.',art:'laughter-luffy',c:'laughter-luffy',c2:'abandon-katana'},
+ {ep:'EP.05',jp:'進撃の巨人',en:'ATTACK ON TITAN',short:'AOT',line:'Beyond the walls, fight for freedom.',art:'the-freedom',c:'the-freedom',c2:'the-wings-of-freedom'}];
+const TOP=[
+ {r:'01',n:'Laughter Luffy',s:'One Piece',c:'laughter-luffy'},
+ {r:'02',n:'Abandon Katana',s:'One Piece',c:'abandon-katana'},
+ {r:'03',n:'The Freedom',s:'Attack on Titan',c:'the-freedom'},
+ {r:'04',n:'Baji Keisuke',s:'Tokyo Revengers',c:'baji-keisuke'},
+ {r:'05',n:'Toji Fushiguro',s:'Jujutsu Kaisen',c:'toji-fushiguro'}];
+const img=(n,x,y,h,rot,ex='')=>`<img class="case" src="${C(n)}" style="left:${x}px;top:${y}px;height:${h}px;transform:translateX(-50%) rotate(${rot}deg);${ex}">`;
+const bg=(glowPos='50% 50%')=>`<div class="rays"></div><div class="L glow" style="background:radial-gradient(circle at ${glowPos},rgba(255,45,61,.55) 0,rgba(255,45,61,.12) 38%,transparent 64%)"></div>`;
+const tick=(top,txt)=>`<div class="tick" style="top:${top}px">${txt.map(t=>`<span>${t}</span>`).join('<span>✦</span>')}</div>`;
+const R={
+ A0:()=>`${bg('62% 55%')}${tick(0,['73 ANIME DESIGNS','₹249 ONLY','FREE DELIVERY'])}
+  <div style="position:absolute;left:56px;top:110px" class="logo">LODS<b>CLUB</b></div>
+  <div class="dg" style="position:absolute;left:56px;top:190px;font-size:118px;line-height:.95;z-index:5;text-shadow:0 6px 24px rgba(0,0,0,.7)">WEAR<br>YOUR<br><span style="color:#ff2d3d">ANIME.</span></div>
+  <div style="position:absolute;left:58px;top:560px;font-size:32px;line-height:1.35;width:430px;color:#ddd">Metal-back anime phone cases for 14 phone brands.</div>
+  ${img('team-7',735,360,500,-14)}${img('laughter-luffy',975,370,500,13)}${img('being-saturo',855,280,600,0,'z-index:2')}
+  <div class="burst" style="left:44px;top:700px;width:300px;height:300px;transform:rotate(-8deg)"><span class="dg" style="font-size:78px;line-height:1">₹249</span><span class="dg" style="font-size:26px">50% OFF</span></div>
+  <div class="swipe" style="right:56px;bottom:56px">Swipe to pick your arc →</div>`,
+ A:(i)=>{const a=ARCS[i];return `<div class="L" style="background:url(${U}art-${a.art}.jpg) center/cover;filter:brightness(.38) saturate(1.25)"></div>${bg('70% 55%')}
+  <div class="L" style="background:linear-gradient(90deg,rgba(11,11,16,.92) 0,rgba(11,11,16,.55) 48%,rgba(11,11,16,0) 75%)"></div>
+  <div style="position:absolute;left:56px;top:70px;display:flex;align-items:center;gap:16px"><span class="ep">${a.ep}</span><span style="width:120px;height:4px;background:#ff2d3d"></span></div>
+  <div class="dg" style="position:absolute;left:56px;top:160px;font-size:58px;color:#ffd400">${a.jp}</div>
+  <div class="dg" style="position:absolute;left:56px;top:240px;width:600px;z-index:5;font-size:${a.en.length>10?78:100}px;line-height:1;text-shadow:0 6px 24px rgba(0,0,0,.7)">${a.en.replace(' ','<br>')}</div>
+  <div style="position:absolute;left:58px;top:470px;width:440px;z-index:5;font-size:34px;line-height:1.35;color:#e8e8e8">${a.line}</div>
+  ${img(a.c2,1000,330,520,12,'opacity:.95')}${img(a.c,815,250,660,-7,'z-index:2')}
+  <div style="position:absolute;left:56px;bottom:70px;display:flex;align-items:center;gap:18px"><span class="wbtn" style="font-size:34px;padding:18px 28px">Shop ${a.short} · ₹249 →</span></div>
+  <div class="tag" style="left:56px;top:640px;background:#ff2d3d">50% OFF · MRP ₹499</div>`},
+ A6:()=>`${bg()}${tick(0,['FREE KEYRING','FREE DELIVERY','PAY BY UPI'])}
+  <div style="position:absolute;left:0;right:0;top:110px;text-align:center"><div class="dg" style="font-size:150px;line-height:1;color:#ffd400">73</div><div class="dg" style="font-size:72px">DESIGNS.</div><div style="font-weight:800;font-size:34px;margin-top:10px">Made for your exact phone</div></div>
+  ${['lost-uchiha','copy-ninja','kamado-aura','god-of-the-new-world','flame-of-asta','the-water-hashira','manji-gang'].map((n,j)=>{const o=j-3;return img(n,540+o*150,520+Math.abs(o)*40,380,o*8)}).join('')}
+  <div style="position:absolute;left:30px;right:30px;top:820px;text-align:center">${['Samsung','iPhone','Vivo','Oppo','Realme','Redmi','OnePlus'].map(b=>`<span class="chip" style="background:rgba(11,11,16,.7)">${b}</span>`).join('')}</div>
+  <div style="position:absolute;left:0;right:0;bottom:42px;text-align:center"><span class="btn" style="font-size:44px;width:520px;height:96px">SHOP NOW →</span></div>`,
+ B0:()=>`${bg('50% 58%')}
+  <div style="position:absolute;left:0;right:0;top:56px;text-align:center" class="logo">LODS<b>CLUB</b></div>
+  <div style="position:absolute;left:0;right:0;top:130px;text-align:center"><div class="dg" style="font-size:44px;color:#ffd400;letter-spacing:4px">MOST LOVED</div><div class="dg" style="font-size:120px;line-height:1">TOP 5</div><div class="dg" style="font-size:70px;line-height:1.05;color:#ff2d3d">ANIME CASES</div></div>
+  ${img('abandon-katana',300,500,420,-16)}${img('baji-keisuke',780,500,420,16)}${img('the-freedom',410,450,470,-7,'z-index:2')}${img('toji-fushiguro',670,450,470,7,'z-index:2')}${img('laughter-luffy',540,420,540,0,'z-index:3')}
+  <div style="position:absolute;left:0;right:0;bottom:40px;text-align:center;font-weight:800;font-size:34px">Every case <span class="dg" style="color:#ffd400;font-size:40px">₹249</span> · Swipe →</div>`,
+ B:(i)=>{const p=TOP[i];return `<div class="stage">${bg('50% 52%')}
+   <div style="position:absolute;left:30%;right:30%;bottom:46px;height:26px;border-radius:50%;background:rgba(0,0,0,.6);filter:blur(12px)"></div>
+   ${img(p.c,540,58,600,-5)}
+   <div class="rank" style="left:46px;top:40px">#${p.r}</div>
+   <div class="tag" style="right:46px;top:52px">50% OFF</div>
+   <div style="position:absolute;left:0;right:0;bottom:22px;text-align:center;font-weight:800;font-size:22px;letter-spacing:5px;color:rgba(255,255,255,.8)">GLOSSY METAL BACK</div></div>
+  <div class="panel">
+   <div style="font-size:24px;font-weight:800;letter-spacing:2px;color:#e11d2a;text-transform:uppercase">${p.s} · Bestseller</div>
+   <div style="font-size:52px;font-weight:800;line-height:1.1;margin-top:6px">${p.n}</div>
+   <div style="display:flex;align-items:center;gap:18px;margin-top:16px"><span style="font-size:64px;font-weight:800;color:#e11d2a;line-height:1">₹249</span><span style="font-size:32px;color:#8a8a8a;text-decoration:line-through">₹499</span><span class="pill">50% OFF</span></div>
+   <div style="margin-top:22px"><span class="perk">Free delivery</span><span class="perk">Pay by UPI</span><span class="perk">Free keyring</span></div>
+  </div>`},
+ B6:()=>`<div class="stage" style="height:1080px">${bg('50% 40%')}</div>
+  <div style="position:absolute;left:0;right:0;top:60px;text-align:center"><div class="dg" style="font-size:40px;color:#ffd400;letter-spacing:3px">3 TAPS TO YOUR</div><div class="dg" style="font-size:100px;line-height:1">NEW CASE</div></div>
+  ${[['01','選ぶ','Pick your hero','73 anime designs'],['02','合う','Pick your phone','14 brands, exact model'],['03','届く','Pay by UPI','Free delivery in 5–7 days']].map((s,j)=>`<div style="position:absolute;left:60px;right:60px;top:${280+j*190}px;height:165px;background:#15151c;border:2px solid #2a2a34;border-radius:14px;display:flex;align-items:center;padding:0 34px;gap:30px"><span class="dg" style="font-size:80px;color:#ff2d3d;width:120px">${s[0]}</span><div style="flex:1"><div style="font-weight:800;font-size:40px">${s[2]}</div><div style="font-size:28px;color:#bdbdbd;margin-top:4px">${s[3]}</div></div><span class="dg" style="font-size:52px;color:#ffd400">${s[1]}</span></div>`).join('')}
+  <div style="position:absolute;left:0;right:0;bottom:56px;text-align:center"><span class="btn" style="font-size:44px;width:560px;height:100px">SHOP ₹249 →</span><div style="margin-top:14px;font-weight:800;font-size:28px;color:#ddd">★★★★★ 4.9 on Google · Free keyring</div></div>`
+};
+const IMGS=[...new Set([...ARCS.flatMap(a=>[C(a.c),C(a.c2),U+'art-'+a.art+'.jpg']),...TOP.map(t=>C(t.c)),...['team-7','being-saturo','lost-uchiha','copy-ninja','kamado-aura','god-of-the-new-world','flame-of-asta','the-water-hashira','manji-gang'].map(C)])];
+window.ready=Promise.all([document.fonts.ready,...IMGS.map(s=>new Promise(r=>{const i=new Image();i.onload=i.onerror=r;i.src=s}))]);
+window.show=k=>{const m=k.match(/^([AB])(\d)$/);const f=R[k]||(i=>R[m[1]](i-1));document.getElementById('c').innerHTML=R[k]?R[k]():f(+m[2]);return document.fonts.ready};
+</script></body></html>

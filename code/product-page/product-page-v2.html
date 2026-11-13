@@ -1,0 +1,184 @@
+<style>
+html.lcp .single-product .haru-page-title{display:none!important}
+html.lcp .lcp-off,html.lcp .wbms-wrapper>p{display:none!important}
+html.lcp .lcp-top{margin:6px 0 14px}
+html.lcp .lcp-pricerow{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+html.lcp .lcp-now{font-size:28px;font-weight:800;color:#e11d2a;line-height:1}
+html.lcp .lcp-mrp{font-size:15px;color:#8a8a8a;text-decoration:line-through}
+html.lcp .lcp-pill{background:#e7f6ee;color:#13824a;font-weight:800;font-size:12px;padding:4px 8px;border-radius:4px}
+html.lcp .lcp-perks{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:10px;font-size:13.5px;font-weight:600;color:#1b1b1b}
+html.lcp .lcp-perks span:before{content:"✓ ";color:#13824a;font-weight:900}
+html.lcp .lcp-step{font-size:13px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:#1b1b1b;margin:16px 0 8px;display:flex;justify-content:space-between;align-items:center}
+html.lcp .lcp-step em{font-style:normal;font-weight:600;text-transform:none;letter-spacing:0;color:#e11d2a;cursor:pointer;font-size:13px}
+html.lcp .lcp-brands{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+html.lcp .lcp-b{border:1.5px solid #e3e3e3;background:#fff;border-radius:8px;min-height:44px;font-size:12.5px;font-weight:700;color:#222;padding:4px;cursor:pointer;line-height:1.15}
+html.lcp .lcp-b.on{border-color:#e11d2a;background:#fff1f2;color:#e11d2a}
+html.lcp .lcp-more{grid-column:span 4;background:none;border:0;color:#e11d2a;font-weight:700;font-size:13px;padding:6px;cursor:pointer}
+html.lcp .lcp-search{width:100%;height:46px;border:1.5px solid #d9d9d9;border-radius:8px;padding:0 14px;font-size:16px;background:#fff}
+html.lcp .lcp-search:focus{border-color:#e11d2a;outline:0}
+html.lcp .lcp-list{max-height:232px;overflow-y:auto;border:1px solid #eee;border-radius:8px;margin-top:8px;-webkit-overflow-scrolling:touch}
+html.lcp .lcp-m{display:block;width:100%;text-align:left;background:#fff;border:0;border-bottom:1px solid #f1f1f1;padding:12px 14px;font-size:14.5px;color:#222;cursor:pointer}
+html.lcp .lcp-m:active,html.lcp .lcp-m:hover{background:#fff1f2}
+html.lcp .lcp-none{padding:12px 14px;font-size:13.5px;color:#666}
+html.lcp .lcp-none a{color:#13824a;font-weight:700}
+html.lcp .lcp-picked{display:flex;align-items:center;justify-content:space-between;gap:10px;border:1.5px solid #13824a;background:#effaf4;border-radius:8px;padding:12px 14px;font-weight:700;font-size:14.5px;color:#0f5f37}
+html.lcp .lcp-picked em{font-style:normal;color:#e11d2a;font-size:13px;cursor:pointer;white-space:nowrap}
+html.lcp .lcp-err{display:none;color:#e11d2a;font-weight:700;font-size:13.5px;margin-top:8px}
+html.lcp .lcp-shake .lcp-err{display:block}
+html.lcp .lcp-shake{animation:lcpS .4s}
+@keyframes lcpS{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+html.lcp form.cart{margin-bottom:0!important}
+html.lcp form.cart .single_add_to_cart_button{min-height:52px;font-size:16px!important;font-weight:800!important}
+html.lcp .lcp-trust{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:16px 0 6px;text-align:center}
+html.lcp .lcp-trust div{background:#f7f7f7;border-radius:8px;padding:10px 4px;font-size:11.5px;font-weight:700;color:#333;line-height:1.25}
+html.lcp .lcp-trust b{display:block;height:24px;margin-bottom:4px}
+html.lcp .lcp-gift{margin-top:8px;font-size:13.5px;color:#333;background:#fff8e1;border-radius:8px;padding:10px 12px}
+html.lcp .lcp-gift b{color:#b26a00}
+html.lcp .lcp-get{display:flex;gap:12px;align-items:center;background:#111;color:#fff;border-radius:12px;padding:14px;margin:18px 0 6px;overflow:hidden}
+html.lcp .lcp-get img{height:150px;width:auto;transform:rotate(-5deg);filter:drop-shadow(0 10px 10px rgba(0,0,0,.6));flex:none}
+html.lcp .lcp-get ul{list-style:none;margin:0;padding:0;font-size:13.5px;line-height:1.5}
+html.lcp .lcp-get li{margin:0 0 8px}
+html.lcp .lcp-get li b{color:#ffd400;display:block;font-size:12px;letter-spacing:.6px;text-transform:uppercase}
+html.lcp .lcp-rev{margin:18px 0 8px}
+html.lcp .lcp-rev h3{font-size:17px;font-weight:800;margin:0 0 10px;color:#111}
+html.lcp .lcp-rev h3 span{color:#f5a400}
+html.lcp .lcp-rrow{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px;-webkit-overflow-scrolling:touch}
+html.lcp .lcp-r{flex:0 0 82%;scroll-snap-align:start;border:1px solid #ececec;border-radius:10px;padding:12px 14px;background:#fff}
+html.lcp .lcp-r i{font-style:normal;color:#f5a400;font-size:13px}
+html.lcp .lcp-r p{margin:6px 0;font-size:13.5px;line-height:1.5;color:#333}
+html.lcp .lcp-r strong{font-size:13px;color:#111}
+html.lcp .lcp-details{margin-top:10px;border-top:1px solid #eee;padding-top:8px}
+html.lcp .lcp-details summary{font-weight:800;font-size:14px;cursor:pointer;padding:8px 0;color:#111}
+html.lcp .lcp-bar{position:fixed;left:0;right:0;bottom:0;z-index:10000;background:#fff;border-top:1px solid #e6e6e6;box-shadow:0 -6px 18px rgba(0,0,0,.08);display:flex;align-items:center;gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));transform:translateY(110%);transition:transform .25s}
+html.lcp .lcp-bar.show{transform:none}
+html.lcp .lcp-bar img{width:40px;height:52px;object-fit:contain;flex:none}
+html.lcp .lcp-bar .t{flex:1;min-width:0;line-height:1.2}
+html.lcp .lcp-bar .t b{display:block;font-size:18px;color:#e11d2a}
+html.lcp .lcp-bar .t small{display:block;font-size:12px;color:#555;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+html.lcp .lcp-bar button{flex:none;background:#e11d2a;color:#fff;border:0;border-radius:8px;font-weight:800;font-size:15px;padding:0 18px;height:48px;cursor:pointer}
+html.lcp.lcp-has-bar #haru-bottom-toolbar,html.lcp.lcp-has-bar .back-to-top{display:none!important}
+html.lcp.lcp-has-bar .joinchat{bottom:78px!important}
+html.lcp.lcp-has-bar body{padding-bottom:80px}
+@media(max-width:767px){
+html.lcp .single-product-image .product-images-wrap img{max-height:46vh!important;width:auto!important;margin:0 auto!important;object-fit:contain}
+html.lcp .single-product .product_title{font-size:22px!important;line-height:1.25!important;margin-bottom:4px!important}
+}
+@media(min-width:768px){html.lcp .lcp-brands{grid-template-columns:repeat(8,1fr)}html.lcp .lcp-more{grid-column:span 8}html.lcp .lcp-r{flex-basis:46%}}
+html.lcp-hero-on .single-product-image .product-images-wrap{display:none!important}
+html.lcp-hero-on .single-product-image-content>.product-label,html.lcp-hero-on .single-product-image .onsale,html.lcp-hero-on .single-product-image .product-label,html.lcp-hero-on .single-product-image [class*=badge]{display:none!important}
+html.lcp .lcp-hero{position:relative;margin:0 0 4px}
+html.lcp .lcp-slides{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;border-radius:16px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+html.lcp .lcp-slides::-webkit-scrollbar{display:none}
+html.lcp .lcp-slide{flex:0 0 100%;scroll-snap-align:center;height:min(47vh,400px);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+html.lcp .lcp-stage{background:repeating-conic-gradient(from 0deg at 50% 52%,rgba(255,255,255,.045) 0 1.6deg,transparent 1.6deg 8deg),radial-gradient(circle at 50% 52%,rgba(255,45,61,.42) 0,rgba(255,45,61,.08) 42%,transparent 68%),#0d0d12}
+html.lcp .lcp-stage:after{content:"";position:absolute;left:18%;right:18%;bottom:7%;height:18px;border-radius:50%;background:rgba(0,0,0,.55);filter:blur(10px)}
+html.lcp .lcp-cut{height:84%;width:auto;max-width:none;position:relative;z-index:1;transform:rotate(-5deg);filter:drop-shadow(0 24px 22px rgba(0,0,0,.7))}
+@media(prefers-reduced-motion:no-preference){html.lcp .lcp-cut{animation:lcpF 4.5s ease-in-out infinite}}
+@keyframes lcpF{0%,100%{transform:rotate(-5deg) translateY(0)}50%{transform:rotate(-3deg) translateY(-8px)}}
+html.lcp .lcp-orig{background:#fff;border:1px solid #eee;border-radius:16px}
+html.lcp .lcp-orig img{max-height:92%;width:auto;max-width:92%;object-fit:contain}
+html.lcp .lcp-tag{position:absolute;top:12px;left:12px;z-index:2;background:#e11d2a;color:#fff;font-weight:800;font-size:13px;padding:5px 9px;border-radius:5px;letter-spacing:.3px}
+html.lcp .lcp-lab{position:absolute;bottom:12px;left:0;right:0;z-index:2;text-align:center;color:rgba(255,255,255,.8);font-size:11.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase}
+html.lcp .lcp-thumbs{display:flex;gap:8px;justify-content:center;margin-top:10px}
+html.lcp .lcp-th{width:58px;height:58px;border-radius:10px;border:2px solid #e5e5e5;padding:0;overflow:hidden;cursor:pointer;display:flex;align-items:center;justify-content:center;background:#fff}
+html.lcp .lcp-th.dark{background:radial-gradient(circle,rgba(255,45,61,.45),#0d0d12 70%)}
+html.lcp .lcp-th img{height:48px;width:auto}
+html.lcp .lcp-th.on{border-color:#e11d2a}
+html.lcp .lcp-swipe{text-align:center;font-size:12px;color:#888;margin-top:6px}
+@media(min-width:768px){html.lcp .lcp-slide{height:560px}html.lcp .lcp-swipe{display:none}}
+</style>
+<script>
+(function(){
+var LIVE=true;
+function ok(){if(!document.body||!document.body.classList.contains('single-product'))return false;if(LIVE)return true;var q=location.search,on=false;try{if(/lc_preview=0/.test(q))sessionStorage.removeItem('lcpv');if(/lc_preview=1/.test(q))sessionStorage.setItem('lcpv','1');on=sessionStorage.getItem('lcpv')==='1';}catch(e){on=/lc_preview=1/.test(q);}return on;}
+function go(){
+if(!ok())return;
+try{if(sessionStorage.getItem('lcp_go')==='1'){sessionStorage.removeItem('lcp_go');if(document.querySelector('.woocommerce-message')&&!document.querySelector('.woocommerce-error')){location.href='/checkout/';return;}}}catch(e){}
+var form=document.querySelector('.summary form.cart'),bs=document.getElementById('wbms_brand'),ms=document.getElementById('wbms_model'),BM=window.wbmsBrandModels;
+if(!form||!bs||!ms||!BM)return;
+document.documentElement.classList.add('lcp');
+var sum=form.closest('.summary-content')||form.parentNode;
+var priceEl=sum.querySelector(':scope > .price')||sum.querySelector('p.price'),title=sum.querySelector('.product_title'),desc=sum.querySelector('.woocommerce-product-details__short-description');
+var ins=priceEl&&priceEl.querySelector('ins .amount'),del=priceEl&&priceEl.querySelector('del .amount');
+var now=ins?ins.textContent.replace(/\.00/,''):(priceEl?priceEl.textContent.trim():''),mrp=del?del.textContent.replace(/\.00/,''):'';
+var n=parseFloat(now.replace(/[^\d.]/g,'')),m=parseFloat(mrp.replace(/[^\d.]/g,''));
+var off=m>n?Math.round(100-n*100/m):0;
+var pname=title?title.textContent.trim():'';
+var mainImg=document.querySelector('.single-product-image img');
+var imgSrc=mainImg?(mainImg.getAttribute('data-large_image')||mainImg.currentSrc||mainImg.src):'';
+function el(h){var d=document.createElement('div');d.innerHTML=h;return d.firstElementChild;}
+var HAVE=["abandon-katana", "baji-keisuke", "being-saturo", "colossal-battle", "copy-ninja", "flame-of-asta", "god-of-the-new-world", "infinity-castle", "kamado-aura", "laughter-luffy", "legendary-special-grade-sorcerer", "lost-uchiha", "manji-gang", "shinigamis-addiction", "six-paths-sage", "team-7", "the-bloody-halloween-charge", "the-freedom", "the-pirates", "the-water-hashira", "the-wings-of-freedom", "toji-fushiguro", "yellow-flash"];
+var slugH=(location.pathname.match(/product\/([^\/]+)/)||[])[1]||'',baseH=slugH.replace(/-metal-tpu-case$/,'');
+var cutH='https://lodsclub.com/wp-content/uploads/2026/11/'+(HAVE.indexOf(baseH)>-1?'lp-anime-':'lp-shop-')+baseH+'.webp';
+var gwrap=document.querySelector('.single-product-image .product-images-wrap');
+if(gwrap&&/metal-tpu-case/.test(slugH)){
+var hero=el('<div class="lcp-hero"><div class="lcp-slides"><div class="lcp-slide lcp-stage">'+(off?'<span class="lcp-tag">'+off+'% OFF</span>':'')+'<img class="lcp-cut" alt="'+pname.replace(/"/g,'')+' anime metal back phone case" src="'+cutH+'"><span class="lcp-lab">Glossy metal back</span></div><div class="lcp-slide lcp-orig"><img alt="'+pname.replace(/"/g,'')+' product photo" loading="lazy" src="'+imgSrc+'"></div></div><div class="lcp-thumbs"><button type="button" class="lcp-th dark on" aria-label="Case view"><img alt="" src="'+cutH+'"></button><button type="button" class="lcp-th" aria-label="Product photo"><img alt="" src="'+imgSrc+'"></button></div><div class="lcp-swipe">Swipe to see the product photo</div></div>');
+var hc=hero.querySelector('.lcp-cut');
+hc.onerror=function(){hero.remove();document.documentElement.classList.remove('lcp-hero-on');};
+hc.onload=function(){document.documentElement.classList.add('lcp-hero-on');};
+gwrap.parentNode.insertBefore(hero,gwrap);
+var sl=hero.querySelector('.lcp-slides'),ths=hero.querySelectorAll('.lcp-th');
+[].forEach.call(ths,function(t,i){t.onclick=function(){sl.scrollTo({left:i*sl.clientWidth,behavior:'smooth'});};});
+sl.addEventListener('scroll',function(){var i=Math.round(sl.scrollLeft/sl.clientWidth);[].forEach.call(ths,function(t,k){t.classList.toggle('on',k===i);});},{passive:true});
+if(hc.complete&&hc.naturalWidth)document.documentElement.classList.add('lcp-hero-on');
+}
+
+var top=el('<div class="lcp-top"><div class="lcp-pricerow"><span class="lcp-now">'+now+'</span>'+(mrp?'<span class="lcp-mrp">'+mrp+'</span>':'')+(off?'<span class="lcp-pill">'+off+'% OFF</span>':'')+'</div><div class="lcp-perks"><span>Free delivery</span><span>Pay by UPI</span><span>Free keyring</span></div></div>');
+function kid(e){while(e&&e.parentNode!==sum)e=e.parentNode;return e;}
+var anchor=kid(priceEl)||kid(title);
+if(priceEl)priceEl.classList.add('lcp-off');
+if(anchor)sum.insertBefore(top,anchor.nextSibling);else sum.insertBefore(top,sum.firstChild);
+sum.insertBefore(form,top.nextSibling);
+var pk=el('<div class="lcp-pick"><div class="lcp-step"><span>1. Your phone brand</span></div><div class="lcp-brands"></div><div class="lcp-mwrap" style="display:none"><div class="lcp-step"><span>2. Your exact model</span><em class="lcp-chb">Change brand</em></div><input class="lcp-search" type="search" placeholder="Type your model, e.g. A15" autocomplete="off"><div class="lcp-list"></div></div><div class="lcp-done" style="display:none"><div class="lcp-step"><span>Your phone</span></div><div class="lcp-picked"><span class="lcp-pn"></span><em>Change</em></div></div><div class="lcp-err">Please choose your phone brand and model first.</div></div>');
+var wrap=form.querySelector('.wbms-wrapper')||form.firstElementChild;wrap.appendChild(pk);
+var ORDER=['SAMSUNG','APPLE','VIVO','OPPO','REALME','XIAOMI','ONEPLUS','IQOO','POCO','MOTOROLA','NOTHING','GOOGLE PIXEL','INFINIX','TECNO'];
+var opts=[].slice.call(bs.options).filter(function(o){return o.value;}).map(function(o){return o.value;});
+opts.sort(function(a,b){var ia=ORDER.indexOf(a.toUpperCase()),ib=ORDER.indexOf(b.toUpperCase());return (ia<0?99:ia)-(ib<0?99:ib);});
+var NICE={'SAMSUNG':'Samsung','APPLE':'iPhone','VIVO':'Vivo','OPPO':'Oppo','REALME':'Realme','XIAOMI':'Redmi / Mi','ONEPLUS':'OnePlus','IQOO':'iQOO','POCO':'Poco','MOTOROLA':'Motorola','NOTHING':'Nothing','GOOGLE PIXEL':'Pixel','INFINIX':'Infinix','TECNO':'Tecno'};
+var grid=pk.querySelector('.lcp-brands'),mw=pk.querySelector('.lcp-mwrap'),done=pk.querySelector('.lcp-done'),srch=pk.querySelector('.lcp-search'),list=pk.querySelector('.lcp-list');
+var SHOW=8;
+opts.forEach(function(v,i){var b=document.createElement('button');b.type='button';b.className='lcp-b';b.textContent=NICE[v.toUpperCase()]||v;b.setAttribute('data-v',v);if(i>=SHOW)b.style.display='none';grid.appendChild(b);});
+if(opts.length>SHOW){var mo=document.createElement('button');mo.type='button';mo.className='lcp-more';mo.textContent='+ '+(opts.length-SHOW)+' more brands';grid.appendChild(mo);mo.onclick=function(){[].forEach.call(grid.querySelectorAll('.lcp-b'),function(x){x.style.display='';});mo.remove();};}
+function fire(s){s.dispatchEvent(new Event('change',{bubbles:true}));if(window.jQuery)jQuery(s).trigger('change');}
+function models(){return [].slice.call(ms.options).filter(function(o){return o.value;}).map(function(o){return {v:o.value,t:o.text.trim()};});}
+function draw(){var q=srch.value.toLowerCase().replace(/\s+/g,' ').trim(),qs=q.split(' '),all=models(),h='',c=0;
+all.forEach(function(x){var t=x.t.toLowerCase();if(qs.every(function(w){return t.indexOf(w)>-1;})){h+='<button type="button" class="lcp-m" data-v="'+x.v.replace(/"/g,'&quot;')+'">'+x.t.replace(/</g,'&lt;')+'</button>';c++;}});
+if(!c)h='<div class="lcp-none">Can\'t find your model? <a href="https://wa.me/PHONE_REDACTED?text='+encodeURIComponent('Hi, I want '+pname+' for my phone: '+srch.value)+'" target="_blank" rel="noopener">Ask us on WhatsApp</a></div>';
+list.innerHTML=h;}
+function pickBrand(v){bs.value=v;fire(bs);[].forEach.call(grid.querySelectorAll('.lcp-b'),function(x){x.classList.toggle('on',x.getAttribute('data-v')===v);});
+srch.value='';draw();mw.style.display='';done.style.display='none';pk.classList.remove('lcp-shake');bar();
+if(window.innerWidth<768)setTimeout(function(){mw.scrollIntoView({behavior:'smooth',block:'start'});},60);}
+function pickModel(v){ms.value=v;fire(ms);pk.querySelector('.lcp-pn').textContent=(ms.options[ms.selectedIndex]||{}).text||v;mw.style.display='none';grid.style.display='none';pk.querySelector('.lcp-step').style.display='none';done.style.display='';pk.classList.remove('lcp-shake');bar();}
+grid.addEventListener('click',function(e){var b=e.target.closest('.lcp-b');if(b)pickBrand(b.getAttribute('data-v'));});
+list.addEventListener('click',function(e){var b=e.target.closest('.lcp-m');if(b)pickModel(b.getAttribute('data-v'));});
+srch.addEventListener('input',draw);
+pk.querySelector('.lcp-chb').onclick=function(){mw.style.display='none';[].forEach.call(grid.querySelectorAll('.lcp-b'),function(x){x.classList.remove('on');});};
+done.querySelector('em').onclick=function(){grid.style.display='';pk.querySelector('.lcp-step').style.display='';done.style.display='none';if(bs.value){mw.style.display='';draw();}};
+function ready(){return !!(bs.value&&ms.value);}
+function nag(){pk.classList.remove('lcp-shake');void pk.offsetWidth;pk.classList.add('lcp-shake');pk.scrollIntoView({behavior:'smooth',block:'center'});}
+var atc=form.querySelector('.single_add_to_cart_button');
+if(atc)atc.addEventListener('click',function(e){if(!ready()){e.preventDefault();e.stopImmediatePropagation();nag();}},true);
+var trust=el('<div><div class="lcp-trust"><div><b><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#e11d2a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></b>UPI &amp; cards</div><div><b><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#e11d2a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 4h13v11H1zM14 8h4l4 4v3h-8z"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg></b>Free delivery</div><div><b><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#e11d2a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8M21 3v5h-5M21 12a9 9 0 0 1-15 6.7L3 16M3 21v-5h5"/></svg></b>Easy replace</div><div><b><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#e11d2a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8v8l9 5 9-5zM3 8l9 5 9-5M12 13v8"/></svg></b>5–7 days</div></div><div class="lcp-gift"><b><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#b26a00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-right:4px"><path d="M3 8h18v4H3zM5 12v9h14v-9M12 8v13M12 8S10 3 7.5 4 9 8 12 8zM12 8s2-5 4.5-4S15 8 12 8z"/></svg>Free keyring</b> with every case</div></div>');
+form.parentNode.insertBefore(trust,form.nextSibling);
+var after=trust;
+var slug=(location.pathname.match(/product\/([^\/]+)/)||[])[1]||'';
+var cut='https://lodsclub.com/wp-content/uploads/2026/11/lp-anime-'+slug.replace(/-metal-tpu-case$/,'')+'.webp';
+var get=el('<div class="lcp-get"><img alt="'+pname.replace(/"/g,'')+' metal back case" src="'+cut+'"><ul><li><b>Metal back</b>Art printed on metal, glossy and sharp</li><li><b>TPU edges</b>Soft grip sides, shock absorbent</li><li><b>Made for your model</b>Exact cut-outs for camera and buttons</li></ul></div>');
+var gi=get.querySelector('img');gi.onerror=function(){if(imgSrc&&gi.src!==imgSrc){gi.src=imgSrc;gi.style.borderRadius='10px';gi.style.background='#fff';}else get.remove();};
+after.parentNode.insertBefore(get,after.nextSibling);after=get;
+var R=[['Amazing print quality!','I ordered a custom phone cover and the print quality exceeded my expectations. Colors are vibrant and the material feels premium. Definitely ordering again from LodsClub!','Rohit S.'],['Great quality!','Great quality mobile cover printing! The colors are vibrant, the print is clear, and the cover fits perfectly. Very happy with the overall finish.','Harsh Singh'],['Perfect gift option','Bought a customized phone cover as a gift and it turned out amazing. The packaging was neat and the print quality was excellent.','Ashish Verma']];
+var rv=el('<div class="lcp-rev"><h3><span>★★★★★</span> 4.9 on Google</h3><div class="lcp-rrow">'+R.map(function(r){return '<div class="lcp-r"><i>★★★★★</i><p><strong>“'+r[0]+'”</strong> '+r[1]+'</p><strong>— '+r[2]+'</strong></div>';}).join('')+'</div></div>');
+after.parentNode.insertBefore(rv,after.nextSibling);after=rv;
+if(desc){var dt=el('<details class="lcp-details"><summary>Product details</summary></details>');dt.appendChild(desc);after.parentNode.insertBefore(dt,after.nextSibling);}
+[].forEach.call(document.querySelectorAll('.reviews_tab a, .tab-title-reviews'),function(a){a.innerHTML=a.innerHTML.replace(/\s*\(0\)/,'');});
+var b=el('<div class="lcp-bar"><img alt="" src="'+(document.querySelector('.lcp-cut')?cutH:imgSrc)+'"><div class="t"><b>'+now+(off?' <span style="font-size:12px;color:#13824a;font-weight:800">'+off+'% OFF</span>':'')+'</b><small class="lcp-bs">Free delivery · UPI</small></div><button type="button">Choose phone</button></div>');
+document.body.appendChild(b);document.documentElement.classList.add('lcp-has-bar');
+var bbtn=b.querySelector('button'),bsml=b.querySelector('.lcp-bs');
+function bar(){if(ready()){bbtn.textContent='Buy now';bsml.textContent=(ms.options[ms.selectedIndex]||{}).text||'';}else{bbtn.textContent=bs.value?'Choose model':'Choose phone';bsml.textContent='Free delivery · UPI';}}
+bbtn.onclick=function(){if(!ready()){nag();return;}try{sessionStorage.setItem('lcp_go','1');}catch(e){}if(atc)atc.click();else form.submit();};
+function vis(){var r=(atc||form).getBoundingClientRect();var inView=r.top<window.innerHeight&&r.bottom>0;b.classList.toggle('show',!inView);}
+window.addEventListener('scroll',vis,{passive:true});window.addEventListener('resize',vis);window.addEventListener('load',vis);vis();setTimeout(vis,700);setTimeout(vis,2000);
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){setTimeout(go,0);});else go();
+})();
+</script>

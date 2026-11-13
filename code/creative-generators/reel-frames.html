@@ -1,0 +1,100 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="node_modules/@fontsource/dela-gothic-one/index.css">
+<link rel="stylesheet" href="node_modules/@fontsource/outfit/400.css">
+<link rel="stylesheet" href="node_modules/@fontsource/outfit/800.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#0b0b10}
+#v{position:relative;width:1080px;height:1920px;overflow:hidden;background:#0b0b10;font-family:'Outfit',sans-serif;color:#fff}
+.L{position:absolute;inset:0}
+.dg{font-family:'Dela Gothic One',sans-serif}
+#lines{position:absolute;left:-540px;top:-460px;width:2160px;height:2840px;background:repeating-conic-gradient(from 0deg at 50% 50%,rgba(255,255,255,.06) 0 1.4deg,transparent 1.4deg 7deg)}
+#glow{background:radial-gradient(circle at 50% 46%,rgba(255,45,61,.55) 0,rgba(255,45,61,.12) 38%,transparent 62%)}
+#art{background-size:cover;background-position:center;filter:saturate(1.2) brightness(.42)}
+#vign{background:linear-gradient(180deg,rgba(11,11,16,.85) 0,rgba(11,11,16,0) 22%,rgba(11,11,16,0) 62%,rgba(11,11,16,.95) 100%)}
+.case{position:absolute;filter:drop-shadow(0 40px 40px rgba(0,0,0,.75));transform-origin:50% 60%}
+#tick{position:absolute;top:0;left:0;right:0;height:86px;background:#ffd400;color:#0b0b10;display:flex;align-items:center;white-space:nowrap;font-family:'Dela Gothic One';font-size:34px;overflow:hidden}
+#tick span{display:inline-block;padding-right:40px}
+#logo{position:absolute;top:130px;left:0;right:0;text-align:center;font-family:'Dela Gothic One';font-size:46px;letter-spacing:2px}
+#logo b{color:#ff2d3d;font-weight:400}
+.big{position:absolute;left:70px;right:70px;font-family:'Dela Gothic One';line-height:.95;text-transform:uppercase}
+#flash{background:#fff;opacity:0}
+.chip{display:inline-block;border:3px solid rgba(255,255,255,.85);border-radius:40px;padding:10px 26px;margin:8px 6px;font-weight:800;font-size:34px}
+#burst{position:absolute;width:640px;height:640px;left:220px;top:470px;background:#ffd400;clip-path:polygon(50% 0%,59% 13%,74% 5%,76% 21%,92% 19%,86% 34%,100% 41%,88% 52%,98% 65%,82% 69%,84% 85%,68% 82%,61% 97%,50% 86%,39% 97%,32% 82%,16% 85%,18% 69%,2% 65%,12% 52%,0% 41%,14% 34%,8% 19%,24% 21%,26% 5%,41% 13%)}
+#btn{position:absolute;left:190px;width:700px;height:150px;border-radius:14px;background:#ff2d3d;color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Dela Gothic One';font-size:64px;box-shadow:0 0 0 8px rgba(255,45,61,.25)}
+</style></head><body><div id="v">
+<div class="L" id="art"></div>
+<div id="lines"></div>
+<div class="L" id="glow"></div>
+<div class="L" id="vign"></div>
+<div class="L" id="stage"></div>
+<div id="tick"><div id="tickin"></div></div>
+<div id="logo">LODS<b>CLUB</b></div>
+<div class="L" id="flash"></div>
+</div>
+<script>
+const U='a/';
+const C=n=>U+'lp-anime-'+n+'.webp';
+const ARCS=[
+ {en:'NARUTO',jp:'ナルト',art:'art-six-paths-sage.jpg',c:'six-paths-sage'},
+ {en:'JUJUTSU KAISEN',jp:'呪術廻戦',art:'art-legendary-special-grade-sorcerer.jpg',c:'toji-fushiguro'},
+ {en:'DEMON SLAYER',jp:'鬼滅の刃',art:'art-infinity-castle.jpg',c:'infinity-castle'},
+ {en:'ONE PIECE',jp:'ワンピース',art:'art-laughter-luffy.jpg',c:'laughter-luffy'},
+ {en:'TOKYO REVENGERS',jp:'東京リベンジャーズ',art:'art-the-bloody-halloween-charge.jpg',c:'baji-keisuke'},
+ {en:'ATTACK ON TITAN',jp:'進撃の巨人',art:'art-the-freedom.jpg',c:'the-freedom'}];
+const FAN=['team-7','legendary-special-grade-sorcerer','kamado-aura','abandon-katana','god-of-the-new-world','the-water-hashira','flame-of-asta'];
+const $=id=>document.getElementById(id);
+const cl=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const eo=x=>1-Math.pow(1-cl(x),3);
+const eb=x=>{x=cl(x);const c1=1.70158,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)};
+const seg=(t,a,d)=>cl((t-a)/d);
+$('tickin').innerHTML=('<span>73 ANIME DESIGNS</span><span>✦</span><span>₹249 ONLY</span><span>✦</span><span>FREE DELIVERY</span><span>✦</span><span>FREE KEYRING</span><span>✦</span>').repeat(4);
+const imgs=[...new Set([...ARCS.map(a=>C(a.c)),...ARCS.map(a=>U+a.art),...FAN.map(C),C('being-saturo'),C('lost-uchiha'),C('copy-ninja')])];
+window.ready=Promise.all([document.fonts.ready,...imgs.map(s=>new Promise(r=>{const i=new Image();i.onload=i.onerror=r;i.src=s;}))]);
+function caseImg(src,x,y,h,rot,sc,op){return `<img class="case" src="${src}" style="left:${x}px;top:${y}px;height:${h}px;transform:translateX(-50%) rotate(${rot}deg) scale(${sc});opacity:${op}">`;}
+function render(t){
+ const st=$('stage');let h='';let flash=0;
+ $('lines').style.transform=`rotate(${t*6}deg)`;
+ $('tickin').style.transform=`translateX(${-((t*160)%560)}px)`;
+ $('art').style.opacity=0;$('glow').style.opacity=1;$('logo').style.opacity=1;
+ if(t<2.5){
+  const k=eb(seg(t,0,.55));const shake=t>.55&&t<.75?Math.sin(t*120)*10:0;
+  h+=caseImg(C('being-saturo'),540+shake,770,900,-6+ (1-k)*14,0.6+0.4*k,cl(t/.15));
+  const W=['WEAR','YOUR','ANIME.'];
+  W.forEach((w,i)=>{const p=eb(seg(t,.35+i*.22,.35));h+=`<div class="big" style="top:${250+i*150}px;font-size:${i==2?170:150}px;color:${i==2?'#ff2d3d':'#fff'};opacity:${cl(p*3)};transform:translateX(${(1-p)*-260}px)">${w}</div>`;});
+  const q=eo(seg(t,1.3,.4));
+  h+=`<div style="position:absolute;left:0;right:0;top:1700px;text-align:center;font-weight:800;font-size:46px;opacity:${q};transform:translateY(${(1-q)*40}px)">Metal-back anime phone cases</div>`;
+  flash=t>2.42?(t-2.42)/.08:0;
+ } else if(t<8.5){
+  const i=Math.min(5,Math.floor((t-2.5)/1.0)),lt=t-2.5-i*1.0,a=ARCS[i];
+  $('art').style.backgroundImage=`url(${U+a.art})`;$('art').style.opacity=1;$('art').style.transform=`scale(${1.12+lt*0.08})`;$('glow').style.opacity=.75;
+  const k=eb(seg(lt,0,.4));
+  h+=`<div style="position:absolute;left:0;right:0;top:300px;text-align:center"><div class="dg" style="font-size:64px;color:#ffd400;opacity:${eo(seg(lt,.05,.25))}">${a.jp}</div><div class="dg" style="font-size:${a.en.length>11?112:150}px;line-height:1;margin-top:14px;padding:0 40px;transform:scale(${1.25-0.25*eo(seg(lt,0,.3))});opacity:${eo(seg(lt,0,.2))}">${a.en}</div></div>`;
+  h+=caseImg(C(a.c),540+(1-k)*700,680,860,(i%2?6:-6)+(1-k)*20,1,1);
+  h+=`<div style="position:absolute;left:0;right:0;top:1575px;text-align:center"><span class="dg" style="background:#ff2d3d;padding:14px 30px;border-radius:8px;font-size:46px">₹249</span></div>`;
+  flash=lt<.1?1-lt/.1:0;
+ } else if(t<11.5){
+  const lt=t-8.5;
+  FAN.forEach((n,j)=>{const off=j-3,p=eb(seg(lt,.05+Math.abs(off)*.09,.45));h+=caseImg(C(n),540+off*175,820+Math.abs(off)*55+(1-p)*900,620,off*9,1-Math.abs(off)*.05,1);});
+  const p=eb(seg(lt,.5,.4));
+  h+=`<div style="position:absolute;left:0;right:0;top:270px;text-align:center;transform:scale(${.6+.4*p});opacity:${cl(p*2)}"><div class="dg" style="font-size:210px;line-height:1;color:#ffd400">73</div><div class="dg" style="font-size:96px;line-height:1">DESIGNS</div></div>`;
+  const q=eo(seg(lt,1.1,.4));
+  h+=`<div style="position:absolute;left:40px;right:40px;top:1530px;text-align:center;opacity:${q};transform:translateY(${(1-q)*40}px)"><div style="font-weight:800;font-size:44px;margin-bottom:14px">For your exact phone</div>${['Samsung','iPhone','Vivo','Oppo','Realme','Redmi','OnePlus'].map(b=>`<span class="chip">${b}</span>`).join('')}</div>`;
+  flash=lt<.1?1-lt/.1:0;
+ } else {
+  const lt=t-11.5;
+  const p=eb(seg(lt,.05,.45));
+  h+=caseImg(C('lost-uchiha'),180,640,560,-14,1,eo(seg(lt,.2,.3)));
+  h+=caseImg(C('copy-ninja'),900,640,560,14,1,eo(seg(lt,.2,.3)));
+  h+=`<div id="burst" style="transform:rotate(${lt*12}deg) scale(${p})"></div>`;
+  h+=`<div style="position:absolute;left:0;right:0;top:640px;text-align:center;color:#0b0b10;transform:scale(${p}) rotate(-6deg)"><div class="dg" style="font-size:190px;line-height:1">₹249</div><div class="dg" style="font-size:54px;margin-top:10px">50% OFF</div></div>`;
+  const q=eo(seg(lt,.5,.35));
+  h+=`<div style="position:absolute;left:0;right:0;top:1150px;text-align:center;opacity:${q}"><div style="font-size:42px;color:#bbb;text-decoration:line-through">MRP ₹499</div><div style="font-weight:800;font-size:44px;margin-top:16px;line-height:1.5">Free delivery · Free keyring<br>Pay by UPI</div></div>`;
+  const r=eb(seg(lt,.9,.4)),pulse=lt>1.4?1+0.04*Math.sin((lt-1.4)*7):1;
+  h+=`<div id="btn" style="top:1420px;transform:scale(${r*pulse});opacity:${cl(r*2)}">SHOP NOW →</div>`;
+  h+=`<div style="position:absolute;left:0;right:0;top:1610px;text-align:center;font-weight:800;font-size:44px;letter-spacing:1px;opacity:${eo(seg(lt,1.1,.4))}">lodsclub.com</div>`;
+  flash=lt<.1?1-lt/.1:0;
+ }
+ st.innerHTML=h;$('flash').style.opacity=flash*0.85;
+}
+</script></body></html>
