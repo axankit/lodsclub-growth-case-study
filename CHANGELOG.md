@@ -22,3 +22,6 @@ Every change made to the live store and ad account, with the result and the way 
 | 14 Nov | Checkout | Mobile Razorpay screen checked: shows UPI apps (GPay/PhonePe/Paytm) directly | No change needed | – |
 | 14 Nov | Recovery | WhatsApp payment-link nudge to unpaid orders (pending + failed), daily routine | Warm buyers get a one-tap way back to pay | – |
 | 14 Nov | Email | Site email was failing (PHP mail disabled). FluentSMTP installed, connected to the store's own mail server; test email delivered | Order confirmations + failed-payment emails now reach customers | Deactivate FluentSMTP |
+| 14 Nov | Product page | "Prepaid · UPI" perk, "Prepaid order – pay at checkout with GPay, PhonePe, Paytm or card" line, badges "Secure UPI" + "Easy replacement", sticky bar "Free delivery · Prepaid UPI" | No surprise at payment | Draft backup snippet of previous code |
+| 14 Nov | Cart + checkout | Prepaid note above "Proceed to Checkout"; trust box above the pay button; button "Pay securely with UPI / card"; "Free" delivery instead of "Enter address to calculate" / "Shipping calculated at checkout" | Clear prepaid + trust at the moment of paying | Deactivate Code Snippet "Prepaid + trust lines" |
+

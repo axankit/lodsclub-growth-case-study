@@ -1,0 +1,41 @@
+<style>
+.lc-trust{margin:0 0 12px;padding:12px 14px;border:1px solid #e7e2d9;border-radius:10px;background:#fbfaf7;font-family:inherit;color:#1b1b1f}
+.lc-trust .lc-t1{display:flex;gap:10px;align-items:flex-start;font-size:14px;line-height:1.35}
+.lc-trust .lc-t1 svg{flex:0 0 20px;margin-top:1px}
+.lc-trust .lc-t1 b{display:block;font-weight:700}
+.lc-trust .lc-t1 span{color:#55545c;font-size:13px}
+.lc-trust .lc-t2{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:8px;padding-top:8px;border-top:1px dashed #e2ddd2;font-size:12.5px;font-weight:600;color:#13824a}
+.lc-trust .lc-t2 i{font-style:normal;white-space:nowrap}
+.lc-cartnote{font-size:12.5px;line-height:1.35;color:#3b3a40;text-align:center;margin:0 0 8px}
+.lc-cartnote b{color:#13824a}
+</style>
+<script>
+(function(){
+var B=document.body;if(!B)return;
+var isCart=B.classList.contains('woocommerce-cart'),isCo=B.classList.contains('woocommerce-checkout')&&!/order-received|order-pay/.test(location.pathname);
+if(!isCart&&!isCo)return;
+var LOCK='<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#13824a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>';
+var TICK='✓ ';
+function trustBox(){var d=document.createElement('div');d.className='lc-trust';
+d.innerHTML='<div class="lc-t1">'+LOCK+'<div><b>Prepaid order · secure payment by Razorpay</b><span>Pay with GPay, PhonePe, Paytm, any UPI app or card</span></div></div>'+
+'<div class="lc-t2"><i>'+TICK+'Free delivery</i><i>'+TICK+'Easy replacement</i><i>'+TICK+'Delivered across India</i></div>';return d;}
+function setText(sel,match,txt){document.querySelectorAll(sel).forEach(function(e){if(e.children.length===0&&match.test(e.textContent.trim())&&e.textContent!==txt)e.textContent=txt;});}
+function ensure(){
+ if(isCo){
+  var btn=document.querySelector('.wc-block-components-checkout-place-order-button');
+  if(btn){var row=btn.closest('.wc-block-checkout__actions_row')||btn.parentNode;
+   if(!row.previousElementSibling||!row.previousElementSibling.classList.contains('lc-trust'))row.parentNode.insertBefore(trustBox(),row);
+   var t=btn.querySelector('.wc-block-components-button__text');if(t&&t.textContent!=='Pay securely with UPI / card')t.textContent='Pay securely with UPI / card';}
+  setText('.wc-block-components-totals-shipping *',/^Enter address to calculate$/i,'Free');
+ }
+ if(isCart){
+  var cb=document.querySelector('.wc-block-cart__submit-button');
+  if(cb){var box=cb.parentNode;if(!box.querySelector('.lc-cartnote')){var n=document.createElement('p');n.className='lc-cartnote';n.innerHTML='<b>Prepaid</b> · pay by UPI or card at checkout · <b>Free delivery</b> · Easy replacement';box.insertBefore(n,cb);}}
+  setText('.wc-block-components-totals-footer-item *, .wc-block-components-totals-item__description *, .wc-block-components-totals-item__description',/^Shipping will be calculated at checkout\.?$/i,'Free delivery on every order');
+ }
+}
+var q=0;function sch(){if(q)return;q=setTimeout(function(){q=0;ensure();},120);}
+new MutationObserver(sch).observe(B,{childList:true,subtree:true,characterData:true});
+ensure();setTimeout(ensure,1500);setTimeout(ensure,4000);
+})();
+</script>
