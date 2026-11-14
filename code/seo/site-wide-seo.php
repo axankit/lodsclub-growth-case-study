@@ -219,7 +219,8 @@ add_action( 'woocommerce_before_shop_loop', function () {
 		$intro = isset( $c['cats'][ $t->term_id ] ) ? $c['cats'][ $t->term_id ][1] : '';
 	} else { return; }
 	echo '<div class="lc-archive-head"><h1>' . esc_html( $title ) . '</h1>' . ( $intro ? '<p>' . esc_html( $intro ) . '</p>' : '' ) . '</div>';
-	echo '<style>.lc-archive-head{width:100%;margin:6px 0 22px}.lc-archive-head h1{font-size:clamp(26px,4vw,36px);font-weight:600;line-height:1.2;margin:0 0 6px;color:#141414}.lc-archive-head p{margin:0;font-size:15px;line-height:1.5;color:#666;max-width:70ch}</style>';
+	echo '<script>(function(){var h=document.querySelector(".lc-archive-head"),f=h&&h.closest(".shop-filter");if(f&&f.parentNode){f.parentNode.insertBefore(h,f);}})();</script>';
+	echo '<style>:has(> .lc-archive-head){flex-wrap:wrap!important}.lc-archive-head{width:100%;flex:0 0 100%;max-width:100%;order:-1;margin:6px 0 18px}.lc-archive-head h1{font-size:clamp(26px,4vw,36px);font-weight:600;line-height:1.2;margin:0 0 6px;color:#141414}.lc-archive-head p{margin:0;font-size:15px;line-height:1.5;color:#666;max-width:70ch}</style>';
 }, 5 );
 
 /* 5c. Header-level noindex too (covers pages with custom templates that skip wp_head, e.g. the design editor) */

@@ -1,7 +1,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
 .lcs{--ink:#17141c;--red:#e5262d;--rose:#f4e1dc;--plum:#5a2134;--lime:#d6f25a;--paper:#f6f6f4;
- font-family:Brico,system-ui,sans-serif;color:var(--ink);background:var(--paper);margin:0;-webkit-font-smoothing:antialiased}
+ font-family:'Bricolage Grotesque',system-ui,sans-serif;color:var(--ink);background:var(--paper);margin:0;-webkit-font-smoothing:antialiased}
 .lcs *{box-sizing:border-box}
 .lcs-head{padding:36px 20px 22px;max-width:1200px;margin:0 auto}
 .lcs-head h1{font-size:clamp(40px,11vw,96px);font-weight:800;letter-spacing:-.045em;line-height:.92;margin:0}
@@ -13,7 +13,7 @@
 .lcs-meta .go{display:inline-flex;align-items:center;gap:8px;padding:11px 16px;border-radius:999px;font-size:14px;font-weight:600}
 .lcs-meta .go svg{width:16px;height:16px}
 .lcs-fan{position:absolute;right:0;top:0;height:200px;width:76%;z-index:2;pointer-events:none}
-.lcs-fan img{position:absolute;top:22px;width:34%;max-width:150px;filter:drop-shadow(0 14px 22px rgba(0,0,0,.28));transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.lcs-fan img{position:absolute;top:22px;height:auto;width:34%;max-width:150px;filter:drop-shadow(0 14px 22px rgba(0,0,0,.28));transition:transform .5s cubic-bezier(.2,.8,.2,1)}
 .lcs-fan img:nth-child(1){right:52%;transform:rotate(-14deg);top:34px}
 .lcs-fan img:nth-child(2){right:26%;transform:rotate(-2deg);top:12px;z-index:2}
 .lcs-fan img:nth-child(3){right:2%;transform:rotate(11deg);top:34px}
@@ -52,6 +52,21 @@
 .page-id-202622 .haru-page-title{display:none!important}
 .lcs h1,.lcs h2{font-family:inherit;text-transform:none;color:inherit}
 .lcs .lcs-head h1{color:var(--ink)}
+
+@media (hover:none) and (prefers-reduced-motion:no-preference){
+ .lcs-fan img{transition:transform .8s cubic-bezier(.2,.9,.25,1.15)}
+ .lcs.js .lcs-row:not(.in) .lcs-fan img:nth-child(1){transform:translateX(62%) rotate(-3deg) scale(.94)}
+ .lcs.js .lcs-row:not(.in) .lcs-fan img:nth-child(2){transform:translateY(14px) rotate(0deg)}
+ .lcs.js .lcs-row:not(.in) .lcs-fan img:nth-child(3){transform:translateX(-62%) rotate(3deg) scale(.94)}
+ .lcs.js .lcs-row:not(.in) .lcs-fan.solo img{transform:translateY(40px) rotate(0deg) scale(.9)}
+ .lcs-row .lcs-fan img:nth-child(1){transition-delay:.12s}
+ .lcs-row .lcs-fan img:nth-child(3){transition-delay:.2s}
+ .lcs-word{transition:transform .7s cubic-bezier(.2,.8,.2,1),opacity .7s}
+ .lcs.js .lcs-row:not(.in) .lcs-word{transform:translateY(18px);opacity:0}
+ .lcs-row{transition:transform .15s}
+ .lcs-row:active{transform:scale(.985)}
+ .lcs-row:active .lcs-fan img:nth-child(2){transform:rotate(-2deg) translateY(-10px)}
+}
 </style>
 <div class="lcs">
 <header class="lcs-head">
@@ -88,4 +103,6 @@
  <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Prepaid by UPI or card</span>
  <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8M21 3v5h-5M21 12a9 9 0 0 1-15 6.7L3 16M3 21v-5h5"/></svg>Easy replacement</span>
 </div>
-</div>
+</div><script>(function(){var w=document.querySelector('.lcs');if(!w||!('IntersectionObserver' in window)||!matchMedia('(hover:none)').matches)return;w.classList.add('js');
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.4});
+[].forEach.call(w.querySelectorAll('.lcs-row'),function(r){io.observe(r);});})();</script>
