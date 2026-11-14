@@ -19,3 +19,6 @@ Every change made to the live store and ad account, with the result and the way 
 | 12 Nov | Checkout | Phone number required | Couriers always get a number | Customizer setting |
 | 12 Nov | Creative | 15 s reel + 2 carousels generated in code | 1 video, 14 cards | – |
 | 13 Nov | Ads | Old campaign paused; new Sales campaign built (2 ad sets, 5 ads, UTM on every link) | Live 13 → 20 Nov, ₹3,000 | Pause campaign |
+| 14 Nov | Checkout | Mobile Razorpay screen checked: shows UPI apps (GPay/PhonePe/Paytm) directly | No change needed | – |
+| 14 Nov | Recovery | WhatsApp payment-link nudge to unpaid orders (pending + failed), daily routine | Warm buyers get a one-tap way back to pay | – |
+| 14 Nov | Email | Site email was failing (PHP mail disabled). FluentSMTP installed, connected to the store's own mail server; test email delivered | Order confirmations + failed-payment emails now reach customers | Deactivate FluentSMTP |
