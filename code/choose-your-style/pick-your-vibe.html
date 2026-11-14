@@ -1,0 +1,91 @@
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+.lcs{--ink:#17141c;--red:#e5262d;--rose:#f4e1dc;--plum:#5a2134;--lime:#d6f25a;--paper:#f6f6f4;
+ font-family:Brico,system-ui,sans-serif;color:var(--ink);background:var(--paper);margin:0;-webkit-font-smoothing:antialiased}
+.lcs *{box-sizing:border-box}
+.lcs-head{padding:36px 20px 22px;max-width:1200px;margin:0 auto}
+.lcs-head h1{font-size:clamp(40px,11vw,96px);font-weight:800;letter-spacing:-.045em;line-height:.92;margin:0}
+.lcs-head p{margin:12px 0 0;font-size:16px;line-height:1.45;color:#4a4752;max-width:34ch}
+.lcs-row{position:relative;display:block;overflow:hidden;text-decoration:none;color:inherit;isolation:isolate}
+.lcs-row .in{position:relative;max-width:1200px;margin:0 auto;padding:178px 20px 24px;display:flex;flex-direction:column;justify-content:flex-end}
+.lcs-word{font-weight:800;font-size:clamp(58px,17.5vw,150px);letter-spacing:-.055em;line-height:.82;margin:0 0 16px -3px;position:relative;z-index:3}
+.lcs-meta{display:flex;align-items:center;gap:14px;font-size:15px;font-weight:600;position:relative;z-index:3}
+.lcs-meta .go{display:inline-flex;align-items:center;gap:8px;padding:11px 16px;border-radius:999px;font-size:14px;font-weight:600}
+.lcs-meta .go svg{width:16px;height:16px}
+.lcs-fan{position:absolute;right:0;top:0;height:200px;width:76%;z-index:2;pointer-events:none}
+.lcs-fan img{position:absolute;top:22px;width:34%;max-width:150px;filter:drop-shadow(0 14px 22px rgba(0,0,0,.28));transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.lcs-fan img:nth-child(1){right:52%;transform:rotate(-14deg);top:34px}
+.lcs-fan img:nth-child(2){right:26%;transform:rotate(-2deg);top:12px;z-index:2}
+.lcs-fan img:nth-child(3){right:2%;transform:rotate(11deg);top:34px}
+.lcs-fan.solo img{right:12%;width:40%;transform:rotate(8deg);top:14px}
+@media (hover:hover) and (prefers-reduced-motion:no-preference){
+ .lcs-row:hover .lcs-fan img:nth-child(1){transform:rotate(-20deg) translate(-10px,-10px)}
+ .lcs-row:hover .lcs-fan img:nth-child(2){transform:rotate(-2deg) translateY(-14px)}
+ .lcs-row:hover .lcs-fan img:nth-child(3){transform:rotate(17deg) translate(10px,-10px)}
+ .lcs-row:hover .lcs-fan.solo img{transform:rotate(3deg) translateY(-12px)}}
+.lcs-row:focus-visible{outline:3px solid var(--ink);outline-offset:-6px}
+.r-anime{background:var(--ink);color:#fff}
+.r-anime .lcs-word{color:var(--red)}
+.r-anime .go{background:var(--red);color:#fff}
+.r-anime .ct{color:#c9c6cf}
+.r-aes{background:var(--rose);color:var(--plum)}
+.r-aes .go{background:var(--plum);color:var(--rose)}
+.r-aes .ct{color:#8a5a66}
+.r-en{background:var(--lime);color:var(--ink)}
+.r-en .go{background:var(--ink);color:var(--lime)}
+.r-en .ct{color:#4d5a1c}
+.lcs-foot{max-width:1200px;margin:0 auto;padding:22px 20px 40px;display:flex;flex-wrap:wrap;gap:10px 22px;font-size:14px;color:#4a4752}
+.lcs-foot span{display:inline-flex;align-items:center;gap:7px}
+.lcs-foot svg{width:17px;height:17px;flex:none}
+@media (min-width:900px){
+ .lcs-head{padding:64px 32px 34px;display:flex;align-items:flex-end;justify-content:space-between;gap:40px}
+ .lcs-head p{font-size:18px;margin:0 0 8px}
+ .lcs-row .in{padding:56px 32px 44px;min-height:340px}
+ .lcs-word{font-size:clamp(96px,10.5vw,150px)}
+ .lcs-fan{width:44%;right:max(2%,calc((100vw - 1200px)/2));height:100%}
+ .lcs-fan img{max-width:200px;top:40px}
+ .lcs-fan img:nth-child(1){top:58px}.lcs-fan img:nth-child(2){top:24px}.lcs-fan img:nth-child(3){top:58px}
+ .lcs-fan.solo img{max-width:220px;right:22%;top:30px}
+ .lcs-meta{font-size:17px}
+ .lcs-foot{padding:28px 32px 56px;font-size:15px}}
+
+.page-id-202622 .haru-page-title{display:none!important}
+.lcs h1,.lcs h2{font-family:inherit;text-transform:none;color:inherit}
+.lcs .lcs-head h1{color:var(--ink)}
+</style>
+<div class="lcs">
+<header class="lcs-head">
+ <h1>Pick your vibe.</h1>
+ <p>Metal-back cases for 14 phone brands. Every design ₹249, delivered free.</p>
+</header>
+
+<a class="lcs-row r-anime" href="https://lodsclub.com/product-category/mobile-case/anime-mobile-case/">
+ <div class="in">
+  <div class="lcs-fan"><img src="https://lodsclub.com/wp-content/uploads/2026/11/lp-anime-laughter-luffy.webp" alt="Laughter Luffy metal-back phone case" width="420" height="850" loading="lazy" decoding="async"><img src="https://lodsclub.com/wp-content/uploads/2026/11/lp-anime-being-saturo.webp" alt="Being Satoru metal-back phone case" width="420" height="850" loading="lazy" decoding="async"><img src="https://lodsclub.com/wp-content/uploads/2026/11/lp-anime-flame-of-asta.webp" alt="Flame of Asta metal-back phone case" width="420" height="850" loading="lazy" decoding="async"></div>
+  <h2 class="lcs-word">Anime</h2>
+  <div class="lcs-meta"><span class="go">Shop anime <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span class="ct">73 designs</span></div>
+ </div>
+</a>
+
+<a class="lcs-row r-aes" href="https://lodsclub.com/product-category/mobile-case/asthetic/">
+ <div class="in">
+  <div class="lcs-fan"><img src="https://lodsclub.com/wp-content/uploads/2026/11/lc-style-butterfly-pink.webp" alt="Butterfly aesthetic metal-back phone case" width="346" height="700" loading="lazy" decoding="async"><img src="https://lodsclub.com/wp-content/uploads/2026/11/lc-style-maroon-bow.webp" alt="Maroon bow metal-back phone case" width="346" height="700" loading="lazy" decoding="async"><img src="https://lodsclub.com/wp-content/uploads/2026/11/lc-style-blessed.webp" alt="Blessed aesthetic metal-back phone case" width="346" height="700" loading="lazy" decoding="async"></div>
+  <h2 class="lcs-word">Aesthetic</h2>
+  <div class="lcs-meta"><span class="go">Shop aesthetic <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span class="ct">7 designs</span></div>
+ </div>
+</a>
+
+<a class="lcs-row r-en" href="https://lodsclub.com/product-category/mobile-case/energy/">
+ <div class="in">
+  <div class="lcs-fan solo"><img src="https://lodsclub.com/wp-content/uploads/2026/11/lc-style-inner-monster.webp" alt="Inner Monster metal-back phone case" width="346" height="700" loading="lazy" decoding="async"></div>
+  <h2 class="lcs-word">Energy</h2>
+  <div class="lcs-meta"><span class="go">Shop energy <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span class="ct">1 design</span></div>
+ </div>
+</a>
+
+<div class="lcs-foot">
+ <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 4h13v11H1zM14 8h4l4 4v3h-8z"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg>Free delivery across India</span>
+ <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Prepaid by UPI or card</span>
+ <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8M21 3v5h-5M21 12a9 9 0 0 1-15 6.7L3 16M3 21v-5h5"/></svg>Easy replacement</span>
+</div>
+</div>
