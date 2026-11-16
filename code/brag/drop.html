@@ -1,0 +1,73 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:B;src:url(fonts/bricolage-grotesque-latin-800-normal.woff2);font-weight:800}
+@font-face{font-family:F;src:url(fonts/figtree-latin-700-normal.woff2);font-weight:700}
+html,body{margin:0;background:#17141c}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;background:#17141c;font-family:B,sans-serif;color:#f6f6f4}
+#stage *{position:absolute;box-sizing:border-box}
+.bg{inset:0}
+.H{left:60px;right:60px;text-align:center;font-weight:800;text-transform:uppercase;letter-spacing:-.05em;line-height:.86}
+.band{left:-40px;right:-40px;height:230px;background:#e5262d;transform-origin:50% 50%}
+.case{width:440px;left:320px;top:470px;filter:drop-shadow(0 40px 60px rgba(0,0,0,.55))}
+.grid{left:70px;top:430px;width:940px}
+#stage .grid img{position:absolute;width:210px;filter:drop-shadow(0 20px 30px rgba(0,0,0,.5))}
+.cta{left:150px;right:150px;height:140px;border-radius:99px;background:#d6f25a;color:#17141c;font-size:64px;font-weight:800;display:flex;align-items:center;justify-content:center;letter-spacing:-.03em}
+.sm{font-family:F;font-weight:700;font-size:46px;left:0;right:0;text-align:center;color:#d8d3dc}
+.flash{inset:0;background:#fff}
+</style></head><body><div id="stage"></div>
+<script src="common.js"></script>
+<script>
+const Q=new URLSearchParams(location.search);const SER=Q.get('s')||'ds';
+const DATA={
+ ds:{title:'Demon Slayer',items:[['tanjiro','Tanjiro'],['nezuko','Nezuko'],['rengoku','Rengoku'],['giyuu','Giyuu'],['muichiro-tokito','Muichiro'],['zenistu','Zenitsu'],['akaza','Akaza'],['kokushibo','Kokushibo'],['the-water-hashira','Water Hashira'],['infinity-castle','Infinity Castle']],per:1},
+ naruto:{title:'Naruto',items:[['six-paths-sage','Six Paths Sage'],['team-7','Team 7'],['copy-ninja','Copy Ninja'],['lost-uchiha','Lost Uchiha'],['yellow-flash','Yellow Flash'],['tom-uchiha','Uchiha']],per:2},
+ op:{title:'One Piece',items:[['laughter-luffy','Laughter Luffy'],['the-pirates','The Pirates'],['the-freedom','The Freedom'],['peak-memory','Peak Memory']],per:3}};
+const D=DATA[SER];const B=60/140;
+const files=D.items.map(i=>`hi/${SER}-${i[0]}.png`);
+const bg=el('div','bg');
+const nd=el('div','H',null,'Choose<br>your arc');nd.style.cssText+='top:440px;font-size:230px';
+const band=el('div','band');band.style.top='1080px';
+const st=el('div','H',null,D.title);st.style.cssText+='top:1120px;font-size:150px;color:#fff';
+const slots=12/D.per;const seq=[];for(let k=0;k<slots;k++)seq.push(k%files.length);
+const cases=files.map(f=>img(f,'case'));
+const nm=el('div','H');nm.style.cssText+='top:1420px;font-size:110px';
+const cnt=el('div','sm');cnt.style.top='290px';
+const grid=el('div','grid');const gi=files.map(f=>img(f,'',grid));
+const gh=el('div','H',null,D.items.length+' designs');gh.style.cssText+='top:260px;font-size:120px';
+const pr=el('div','H',null,'₹249 each');pr.style.cssText+='top:520px;font-size:200px;color:#d6f25a';
+const fd=el('div','sm',null,'Free delivery across India');fd.style.top='920px';
+const cta=el('div','cta',null,'lodsclub.com');cta.style.top='1040px';
+const ocase=img(files[0],'case');
+const fl=el('div','flash');
+window.SCENES=[{name:'d1',start:0,end:4*B},{name:'d2',start:4*B,end:16*B},{name:'d3',start:16*B,end:22*B},{name:'d4',start:22*B,end:28*B}];
+const ALL=[nd,band,st,...cases,nm,cnt,grid,gh,pr,fd,cta,ocase,fl];
+const BGS=['#17141c','#e5262d','#17141c','#d6f25a'];
+window.render=function(t){
+  ALL.forEach(e=>set(e,{show:false}));const b=t/B;
+  let flash=0;[0,4,16,22].forEach(c=>{flash=Math.max(flash,1-Math.abs(b-c)/0.35)});
+  bg.style.background='#17141c';
+  if(b<4){
+    const p=prog(b,0,.8);set(nd,{s:lerp(1.6,1,eOut(p))*(1+0.02*Math.sin(b*Math.PI*2)),o:clamp(p*3),r:lerp(-6,-3,p)});
+    const q=prog(b,1.5,.6);set(band,{s:1,r:lerp(-14,-4,eOut(q)),x:lerp(-1200,0,eOut(q))});set(st,{x:lerp(-1200,0,eOut(q)),r:-4});
+  }else if(b<16){
+    const k=Math.floor((b-4)/D.per),loc=((b-4)-k*D.per)/D.per;const i=seq[k];
+    bg.style.background=BGS[k%4];
+    const dark=BGS[k%4]==='#d6f25a';
+    set(cases[i],{s:lerp(1.35,1,eOut(clamp(loc*D.per*1.6))),r:(k%2?5:-5)});
+    nm.innerHTML=D.items[i][1];nm.style.color=dark?'#17141c':'#f6f6f4';set(nm,{o:1,y:(1-eOut(clamp(loc*D.per*2)))*40});
+    cnt.innerHTML=String(i+1).padStart(2,'0')+' / '+String(D.items.length).padStart(2,'0');cnt.style.color=dark?'#17141c':'#d8d3dc';set(cnt,{o:1});
+  }else if(b<22){
+    set(gh,{o:eOut(prog(b,16,.6)),s:lerp(1.2,1,eOut(prog(b,16,.6)))});set(grid,{o:1});
+    const n=gi.length,cols=n>6?5:n>4?3:2,rows=Math.ceil(n/cols),w=n>6?168:n>4?280:300;
+    gi.forEach((g,j)=>{g.style.width=w+'px';const c=j%cols,r=Math.floor(j/cols);const gx=(940-cols*w-(cols-1)*24)/2+c*(w+24),gy=r*(w*2.02+24);
+      const a=eBack(prog(b,16.3+j*0.25,.7));set(g,{x:gx,y:gy+(1-a)*300,o:clamp(a*2),r:(j%2?3:-3)});});
+  }else{
+    set(pr,{s:lerp(1.3,1,eBack(prog(b,22,.8))),o:clamp(prog(b,22,.3))});
+    line(fd,t,(22.6)*B,12.01,30);
+    const c=prog(b,23.2,.8);set(cta,{s:lerp(.7,1,eBack(c))*(1+0.03*Math.sin(b*Math.PI)*(b>24?1:0)),o:clamp(c*2)});
+    set(ocase,{s:.55,y:840+(1-eOut(prog(b,22.4,.8)))*300,r:-6,o:1});
+  }
+  if(flash>0)set(fl,{o:flash*0.85});
+};
+window.render(0);
+</script></body></html>

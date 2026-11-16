@@ -1,0 +1,89 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Dela;src:url(pf/dela-gothic-one.woff2)}
+@font-face{font-family:Fr;src:url(pf/fraunces-soft.woff2);font-weight:100 900}
+@font-face{font-family:Fig;src:url(pf/figtree-600.woff2);font-weight:600}
+@font-face{font-family:Fig;src:url(pf/figtree-800.woff2);font-weight:800}
+html,body{margin:0;background:#0b0b10}
+#stage{position:relative;width:1920px;height:1080px;overflow:hidden;background:#0b0b10;color:#f5f3ee;font-family:Fig,sans-serif}
+#stage *{position:absolute;box-sizing:border-box}
+#stage b,#stage em,#stage br{position:static}
+.num{font-family:Fr;font-weight:500;color:#ffd400;letter-spacing:-.03em;line-height:.9}
+.t{font-weight:600;color:#f5f3ee;line-height:1.15}
+.mut{color:#a8a6b0}
+.dela{font-family:Dela;line-height:1.02;letter-spacing:-.01em}
+.dela em{font-style:normal;color:#ff2d3d}
+.phone{width:400px;height:820px;border-radius:56px;border:12px solid #1e1e26;overflow:hidden;background:#000;box-shadow:0 40px 90px rgba(0,0,0,.6)}
+.phone img{position:absolute;left:0;top:0;width:100%}
+.card{border-radius:18px;overflow:hidden;border:1px solid #2a2a34;box-shadow:0 30px 80px rgba(0,0,0,.55);background:#15151c}
+#stage .card img{position:static;display:block;width:100%}
+.tag{font-weight:800;font-size:22px;letter-spacing:.02em;padding:8px 16px;border-radius:8px;background:#ff2d3d;color:#fff}
+.tag.g{background:#2fbf71}
+.pill{border:2px solid #2a2a34;border-radius:99px;padding:18px 34px;font-weight:600;font-size:34px;color:#f5f3ee;background:#15151c;white-space:nowrap}
+.dip{inset:0;background:#0b0b10}
+.rule{height:4px;background:#ff2d3d}
+</style></head><body><div id="stage"></div>
+<script src="common.js"></script>
+<script>
+const Q='pf/';
+// S1 hook
+const h1n=el('div','num',null,'4 of 38');h1n.style.cssText+='left:0;right:0;text-align:center;top:250px;font-size:260px';
+const h1t=el('div','t',null,'orders were actually paid.');h1t.style.cssText+='left:0;right:0;text-align:center;top:540px;font-size:64px';
+const h1s=el('div','t mut',null,'The ads worked. The website didn\'t.');h1s.style.cssText+='left:0;right:0;text-align:center;top:680px;font-size:44px';
+// S2 reveal
+const r1=el('div','dela',null,'From cheap clicks<br>to <em>paying customers.</em>');r1.style.cssText+='left:150px;top:330px;font-size:84px;width:1180px';
+const r2=el('div','t mut',null,'LodsClub growth case study · Meta ads + website rebuild');r2.style.cssText+='left:150px;top:560px;font-size:36px';
+const ph=el('div','phone');ph.style.cssText+='left:1360px;top:130px';
+const old=img(Q+'home_old.jpg','',ph),nw=img(Q+'home_new.jpg','',ph);
+const tOld=el('div','tag',null,'BEFORE'),tNew=el('div','tag g',null,'AFTER');tOld.style.cssText+='left:1400px;top:90px';tNew.style.cssText+='left:1400px;top:90px';
+// S3 checkout
+const c1=el('div','num',null,'3% → 43%');c1.style.cssText+='left:150px;top:330px;font-size:180px';
+const c2=el('div','t',null,'of orders paid, after free delivery<br>and UPI-first checkout');c2.style.cssText+='left:150px;top:540px;font-size:46px';
+const cb=el('div','card');cb.style.cssText+='left:1000px;top:170px;width:780px';img(Q+'02-checkout-before.jpg','',cb);
+const ca=el('div','card');ca.style.cssText+='left:1060px;top:470px;width:780px';img(Q+'03-checkout-after-free-delivery-upi.jpg','',ca);
+const tcb=el('div','tag',null,'₹60 SHIPPING SURPRISE'),tca=el('div','tag g',null,'FREE DELIVERY · UPI FIRST');tcb.style.cssText+='left:1000px;top:120px';tca.style.cssText+='left:1060px;top:420px';
+// S4 speed
+const s1=el('div','num',null,'9.3s → 3.1s');s1.style.cssText+='left:150px;top:330px;font-size:180px';
+const s2=el('div','t',null,'landing page load on mobile');s2.style.cssText+='left:150px;top:540px;font-size:46px';
+const ph2=el('div','phone');ph2.style.cssText+='left:1360px;top:130px';const land=img(Q+'landing.jpg','',ph2);
+// S5 creative + campaign
+const k1=el('div','num',null,'74 carts');k1.style.cssText+='left:150px;top:300px;font-size:180px';
+const k2=el('div','t',null,'and 3 sales in the first 4 days, mostly<br>from a carousel built in code');k2.style.cssText+='left:150px;top:510px;font-size:46px';
+const cards=['C05_Arc_01.jpg','C05_Arc_02.jpg','C05_Arc_03.jpg'].map((f,i)=>{const c=el('div','card');c.style.cssText+=`left:${1050+i*230}px;top:${260+i*40}px;width:420px`;img(Q+f,'',c);return c;});
+// S6 outro
+const o1=el('div','dela',null,'Ads. Website.<br>Tracking. <em>Creative.</em>');o1.style.cssText+='left:0;right:0;text-align:center;top:260px;font-size:104px';
+const o2=el('div','t mut',null,'Ankit Ranjan · growth marketer');o2.style.cssText+='left:0;right:0;text-align:center;top:560px;font-size:44px';
+const o3=el('div','pill',null,'axankit.github.io/lodsclub-growth-case-study');o3.style.cssText+='left:530px;top:680px;width:860px;text-align:center';
+const dip=el('div','dip');
+window.SCENES=[{name:'p1',start:0,end:3.6},{name:'p2',start:3.6,end:7.2},{name:'p3',start:7.2,end:10.8},{name:'p4',start:10.8,end:13.8},{name:'p5',start:13.8,end:16.8},{name:'p6',start:16.8,end:20.4}];
+const ALL=[h1n,h1t,h1s,r1,r2,ph,tOld,tNew,c1,c2,cb,ca,tcb,tca,s1,s2,ph2,k1,k2,...cards,o1,o2,o3,dip];
+function slideIn(e,t,t0,dx=80){const a=eOut(prog(t,t0,.6));set(e,{x:(1-a)*dx,o:a});}
+window.render=function(t){
+  ALL.forEach(e=>set(e,{show:false}));
+  const cuts=[3.6,7.2,10.8,13.8,16.8];let d=0;cuts.forEach(c=>{d=Math.max(d,1-Math.abs(t-c)/0.25)});
+  if(t<3.6){
+    const a=prog(t,.1,.7);set(h1n,{s:lerp(.92,1,eOut(a)),o:eOut(a)});
+    line(h1t,t,.6,3.6,30);line(h1s,t,1.8,3.6,24);
+  }else if(t<7.2){
+    line(r1,t,3.7,7.2,40);line(r2,t,4.3,7.2,24);
+    slideIn(ph,t,3.7,120);
+    const sw=prog(t,5.4,.5);set(old,{o:1});set(nw,{o:eInOut(sw)});set(nw,{y:-lerp(0,60,prog(t,5.4,1.8)),o:eInOut(sw)});
+    set(tOld,{o:(1-sw)*eOut(prog(t,4.0,.3))});set(tNew,{o:sw});
+  }else if(t<10.8){
+    line(c1,t,7.3,10.8,40);line(c2,t,7.9,10.8,24);
+    slideIn(cb,t,7.4);slideIn(tcb,t,7.4);const b=prog(t,8.6,.6);set(cb,{o:lerp(1,.45,b)});
+    slideIn(ca,t,8.6);slideIn(tca,t,8.6);
+  }else if(t<13.8){
+    line(s1,t,10.9,13.8,40);line(s2,t,11.5,13.8,24);
+    slideIn(ph2,t,10.9,120);set(land,{y:-lerp(0,20,eInOut(prog(t,11.6,2)))});
+  }else if(t<16.8){
+    line(k1,t,13.9,16.8,40);line(k2,t,14.5,16.8,24);
+    cards.forEach((c,i)=>{const a=eOut(prog(t,14.0+i*0.3,.5));set(c,{y:(1-a)*60,r:(i-1)*4,o:a});});
+  }else{
+    line(o1,t,16.9,20.5,40);line(o2,t,17.8,20.5,24);
+    const a=prog(t,18.4,.5);set(o3,{s:lerp(.9,1,eBack(a)),o:clamp(a*2)});
+  }
+  if(d>0)set(dip,{o:d});
+};
+window.render(0);
+</script></body></html>

@@ -1,0 +1,14 @@
+LC_Brag_Ad_15s (Meta ad, Reels/Stories)
+Primary text: Anime metal-back cases, ₹249 (MRP ₹499). 80+ designs, made for 14 phone brands, free delivery across India. Pay by UPI or card.
+Headline: Wear your vibe · ₹249
+CTA: Shop now → lodsclub.com/anime/
+
+LC_Arc_DemonSlayer_12s / LC_Arc_Naruto_12s / LC_Arc_OnePiece_12s (Reels, Stories, ads)
+Demon Slayer: Tanjiro, Nezuko, Rengoku and 7 more. Pick your arc: ₹249 each, free delivery across India. lodsclub.com
+Naruto: Six Paths Sage, Team 7, Copy Ninja and more. ₹249 each, free delivery. lodsclub.com
+One Piece: Laughter Luffy, The Pirates, The Freedom, Peak Memory. ₹249 each, free delivery. lodsclub.com
+
+Portfolio_Brag_20s (LinkedIn / portfolio)
+LodsClub's ads were getting clicks for ₹1.79, but only 4 of 38 orders were paid. I rebuilt the path from ad click to UPI payment: paid orders went from 3% to 43%, the landing page from 9.3 s to 3.1 s. Full case study: axankit.github.io/lodsclub-growth-case-study
+
+Music: original, made for these videos. No credit or licence needed.
