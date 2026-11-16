@@ -1,0 +1,16 @@
+Safe area used on every card: price and headline sit in the top half. The bottom third (where Reels/Stories put "Shop Now", the page name and the caption) only has the lower part of the cases, and the right edge of the lower half is kept clear for the like/comment icons. That is the fix for the hidden red price strip in the C05 screenshot.
+
+C07_White_Gallery (6 cards, pure white)
+Primary text: ₹249 anime metal cases (MRP ₹499). Tanjiro, Satoru, Luffy and 80+ more, made for 14 phone brands. Free delivery across India.
+Headline per card: Wear your arc · Tanjiro · Being Satoru · Laughter Luffy · The Wings of Freedom · Shop now
+Link: lodsclub.com/anime/
+
+C08_Hero_vs_Villain (6 cards)
+Primary text: Hero or villain? Pick your side. ₹249 metal-back anime cases, free delivery across India.
+Headline per card: Hero or villain? · Rengoku vs Akaza · Muichiro vs Kokushibo · Satoru vs Toji · Six Paths Sage vs Lost Uchiha · Pick your side
+Link: lodsclub.com/anime/
+
+C09_Why_Metal (5 cards)
+Primary text: Not plastic. Metal. Glossy metal-back anime cases with soft TPU edges, cut for your exact phone. ₹249, free delivery.
+Headline per card: Not plastic. Metal. · Glossy metal back · Soft TPU edges · Cut for your exact phone · ₹249, free delivery
+Link: lodsclub.com/anime/

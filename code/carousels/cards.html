@@ -1,0 +1,118 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:B;src:url(fonts/bricolage-grotesque-latin-800-normal.woff2);font-weight:800}
+@font-face{font-family:B;src:url(fonts/bricolage-grotesque-latin-600-normal.woff2);font-weight:600}
+@font-face{font-family:F;src:url(fonts/figtree-latin-700-normal.woff2);font-weight:700}
+@font-face{font-family:F;src:url(fonts/figtree-latin-500-normal.woff2);font-weight:500}
+@font-face{font-family:S;src:url(../re3/fonts/instrument-serif-latin-400-italic.woff2);font-style:italic}
+@font-face{font-family:S;src:url(../re3/fonts/instrument-serif-latin-400-normal.woff2);font-style:normal}
+html,body{margin:0}
+.card{position:relative;width:1080px;height:1080px;overflow:hidden;font-family:B,sans-serif}
+.card *{position:absolute;box-sizing:border-box;margin:0}
+.card b,.card i,.card s,.card br,.card span.in{position:static}
+.case{filter:drop-shadow(0 34px 40px rgba(0,0,0,.28))}
+/* white */
+.W{background:#fff;color:#111}
+.W .brand{left:64px;top:56px;font-weight:800;font-size:34px;letter-spacing:-.03em}.W .brand b{color:#e5262d}
+.W .idx{right:64px;top:62px;font-family:F;font-weight:700;font-size:26px;color:#9a9a9a}
+.W .k{left:64px;top:150px;font-family:F;font-weight:700;font-size:28px;letter-spacing:.12em;color:#e5262d}
+.W .t{left:64px;top:196px;font-weight:800;font-size:112px;letter-spacing:-.05em;line-height:.9;width:560px}
+.W .p{left:64px;font-weight:800;font-size:72px;letter-spacing:-.04em}
+.W .p s{font-family:F;font-weight:500;font-size:34px;color:#9a9a9a;letter-spacing:0;margin-left:14px}
+.W .line{left:64px;height:3px;width:80px;background:#111}
+.W .note{left:64px;font-family:F;font-weight:500;font-size:30px;color:#555;line-height:1.35;width:470px}
+/* aesthetic */
+.A{background:linear-gradient(160deg,#fbeeee,#f3d6d8 60%,#eec7cd);color:#3b1820}
+.A .brand{left:0;right:0;top:56px;text-align:center;font-weight:800;font-size:30px;letter-spacing:.02em;color:#7d2f3d}
+.A .t{left:0;right:0;top:118px;text-align:center;font-family:S;font-style:italic;font-size:120px;line-height:.95;letter-spacing:-.01em}
+.A .p{left:0;right:0;text-align:center;font-family:F;font-weight:700;font-size:40px;color:#7d2f3d}
+.A .p .pill{position:static;display:inline-block;background:#3b1820;color:#fbeeee;border-radius:99px;padding:10px 26px;margin-left:10px}
+/* versus */
+.V{background:#17141c;color:#f6f6f4}
+.V .split{inset:0;background:linear-gradient(105deg,#17141c 0 50%,#b3121b 50% 100%)}
+.V .brand{left:64px;top:56px;font-weight:800;font-size:34px;letter-spacing:-.03em}.V .brand b{color:#ff5a60}
+.V .series{left:64px;top:62px;font-family:F;font-weight:700;font-size:26px;letter-spacing:.12em;color:#cfcad4}
+.V .chip{right:64px;top:52px;font-family:F;font-weight:700;font-size:28px;background:#d6f25a;color:#17141c;border-radius:99px;padding:10px 22px}
+.V .t{left:64px;top:150px;font-weight:800;font-size:110px;letter-spacing:-.05em;line-height:.9;width:600px}
+.V .t b{color:#d6f25a}
+.V .s{left:64px;font-family:F;font-weight:500;font-size:34px;color:#e8e3ea;line-height:1.35;width:520px}
+.V .side{top:140px;font-family:F;font-weight:700;font-size:28px;letter-spacing:.2em;color:#d6f25a}
+.V .side.l{left:64px}.V .side.r{right:64px;color:#fff}
+.V .nm{top:180px;font-weight:800;font-size:76px;letter-spacing:-.04em;line-height:.95;width:470px}
+.V .nm.l{left:64px}.V .nm.r{right:64px;text-align:right}
+.V .vs{width:140px;height:140px;border-radius:50%;background:#d6f25a;color:#17141c;font-weight:800;font-size:58px;display:flex;align-items:center;justify-content:center;z-index:5;box-shadow:0 10px 40px rgba(0,0,0,.4)}
+/* dark metal */
+.D{background:#17141c;color:#f6f6f4}
+.D .glow{inset:0;background:radial-gradient(50% 45% at 72% 62%,rgba(214,242,90,.22),transparent 70%)}
+.D .brand{left:64px;top:56px;font-weight:800;font-size:34px;letter-spacing:-.03em}.D .brand b{color:#e5262d}
+.D .chip{right:64px;top:52px;font-family:F;font-weight:700;font-size:28px;background:#d6f25a;color:#17141c;border-radius:99px;padding:10px 22px}
+.D .t{left:64px;top:150px;font-weight:800;font-size:110px;letter-spacing:-.05em;line-height:.9;width:620px}
+.D .t b{color:#d6f25a}
+.D .s{left:64px;font-family:F;font-weight:500;font-size:34px;color:#cfcad4;line-height:1.35;width:520px}
+.D .ring{border:3px solid #d6f25a;border-radius:50%}
+.D .lab{font-family:F;font-weight:700;font-size:26px;color:#17141c;background:#d6f25a;border-radius:8px;padding:6px 12px}
+.brandgrid{left:64px;width:560px;display:flex;flex-wrap:wrap;gap:12px}
+.brandgrid span{position:static;font-family:F;font-weight:700;font-size:28px;padding:10px 18px;border-radius:99px;border:2px solid #3a3542;background:#221e29;color:#f6f6f4}
+.cta{border-radius:99px;font-weight:800;font-size:46px;display:flex;align-items:center;justify-content:center;letter-spacing:-.02em}
+</style></head><body><div id="root"></div>
+<script>
+const Q=new URLSearchParams(location.search),C=Q.get('c'),I=+Q.get('i');
+const H='hi/';
+const root=document.getElementById('root');
+function card(cls,html){root.innerHTML=`<div class="card ${cls}">${html}</div>`;}
+function cs(f,x,y,w,r=0,z=1,extra=''){return `<img class="case" src="${H}${f}.png" style="left:${x}px;top:${y}px;width:${w}px;transform:rotate(${r}deg);z-index:${z};${extra}">`;}
+const W=[
+ ()=>card('W',`<div class="brand">LODS<b>CLUB</b></div><div class="idx">1 / 6</div>
+   <div class="k">ANIME METAL CASES</div><div class="t" style="width:460px">Wear your arc.</div>
+   <div class="p" style="top:420px">₹249<s>MRP ₹499</s></div>
+   ${cs('jjk-being-saturo',600,260,290,-12,1)}${cs('op-laughter-luffy',810,290,290,12,1)}${cs('ds-tanjiro',690,180,320,0,2)}`),
+ ...[['ds-tanjiro','DEMON SLAYER','Tanjiro','Water breathing, on a glossy metal back.'],
+     ['jjk-being-saturo','JUJUTSU KAISEN','Being Satoru','The strongest, taking a nap.'],
+     ['op-laughter-luffy','ONE PIECE','Laughter Luffy','Gear 5 energy, printed sharp.'],
+     ['mix-the-wings-of-freedom','ATTACK ON TITAN','The Wings of Freedom','For everyone who wants to see the sea.']].map((d,k)=>()=>card('W',`<div class="brand">LODS<b>CLUB</b></div><div class="idx">${k+2} / 6</div>
+   <div class="k">${d[1]}</div><div class="t" style="font-size:${d[2].length>14?80:112}px;width:${d[2].length>14?530:560}px">${d[2]}</div>
+   <div class="p" style="top:${d[2].length>14?430:420}px">₹249<s>MRP ₹499</s></div>
+   <div class="line" style="top:540px"></div><div class="note" style="top:570px">${d[3]}</div>
+   ${cs(d[0],620,150,380,-4,1)}`)),
+ ()=>card('W',`<div class="brand">LODS<b>CLUB</b></div><div class="idx">6 / 6</div>
+   <div class="k">80+ DESIGNS · 14 PHONE BRANDS</div><div class="t" style="width:900px">Free delivery<br>across India.</div>
+   <div class="note" style="top:440px;width:700px">Prepaid by UPI or card · Easy replacement</div>
+   <div class="cta" style="left:64px;top:520px;width:520px;height:110px;background:#111;color:#fff">lodsclub.com</div>
+   ${cs('naruto-six-paths-sage',600,600,230,-8,1)}${cs('ds-nezuko',770,560,230,6,2)}${cs('jjk-toji-fushiguro',380,660,230,-14,0)}`)
+];
+const V=[
+ ()=>card('V',`<div class="split"></div><div class="brand">LODS<b>CLUB</b></div><div class="chip">₹249 each</div>
+   <div class="t">Hero<br>or <b>villain?</b></div><div class="s" style="top:370px">Pick a side. Metal-back anime cases.</div>
+   ${cs('ds-rengoku',590,250,300,-10,1)}${cs('ds-akaza',790,290,300,10,2)}<div class="vs" style="left:836px;top:300px">VS</div>`),
+ ...[['ds-rengoku','Rengoku','ds-akaza','Akaza','DEMON SLAYER'],['ds-muichiro-tokito','Muichiro','ds-kokushibo','Kokushibo','DEMON SLAYER'],['jjk-being-saturo','Satoru','jjk-toji-fushiguro','Toji','JUJUTSU KAISEN'],['naruto-six-paths-sage','Six Paths Sage','naruto-lost-uchiha','Lost Uchiha','NARUTO']].map((d,k)=>()=>card('V',`<div class="split"></div>
+   <div class="series">${d[4]} · ${k+2}/6</div><div class="chip">₹249 each</div>
+   <div class="side l">HERO</div><div class="side r">VILLAIN</div>
+   <div class="nm l">${d[1]}</div><div class="nm r">${d[3]}</div>
+   ${cs(d[0],150,330,320,-6,1)}${cs(d[2],610,330,320,6,1)}<div class="vs" style="left:470px;top:470px">VS</div>`)),
+ ()=>card('V',`<div class="split"></div><div class="brand">LODS<b>CLUB</b></div>
+   <div class="t" style="width:900px">Pick your side.<br><b>₹249.</b></div><div class="s" style="top:370px;width:900px">Free delivery across India · Prepaid UPI · 14 phone brands</div>
+   <div class="cta" style="left:64px;top:470px;width:520px;height:110px;background:#d6f25a;color:#17141c">Shop at lodsclub.com</div>
+   ${cs('ds-tanjiro',600,560,240,-8,1)}${cs('ds-akaza',790,540,240,8,2)}`)
+];
+const D=[
+ ()=>card('D',`<div class="glow"></div><div class="brand">LODS<b>CLUB</b></div><div class="chip">₹249 · MRP ₹499</div>
+   <div class="t">Not plastic.<br><b>Metal.</b></div><div class="s" style="top:400px">Glossy metal-back anime cases that look like art and grip like a case.</div>
+   ${cs('naruto-six-paths-sage',640,230,360,8,1)}`),
+ ()=>card('D',`<div class="glow"></div><div class="brand">LODS<b>CLUB</b></div><div class="chip">₹249</div>
+   <div class="t" style="font-size:96px">Glossy<br><b>metal back</b></div><div class="s" style="top:370px;width:560px">Art printed on a metal plate under a glass-like gloss. Colours stay sharp.</div>
+   <img class="case" src="${H}mix-the-wings-of-freedom.png" style="left:700px;top:150px;width:480px;transform:rotate(-8deg)">`),
+ ()=>card('D',`<div class="glow"></div><div class="brand">LODS<b>CLUB</b></div><div class="chip">₹249</div>
+   <div class="t" style="font-size:96px">Soft TPU<br><b>edges</b></div><div class="s" style="top:370px">Grippy sides that take the knocks, so the metal back stays perfect.</div>
+   <img class="case" src="${H}ds-rengoku.png" style="left:640px;top:190px;width:340px;transform:rotate(14deg)">`),
+ ()=>card('D',`<div class="glow"></div><div class="brand">LODS<b>CLUB</b></div><div class="chip">₹249</div>
+   <div class="t" style="font-size:96px">Cut for your<br><b>exact phone</b></div>
+   <div class="brandgrid" style="top:370px"><span>Apple</span><span>Samsung</span><span>OnePlus</span><span>Vivo</span><span>Oppo</span><span>Redmi</span><span>Realme</span><span>Pixel</span><span>Nothing</span><span>+5 more</span></div>
+   ${cs('jjk-toji-fushiguro',660,200,330,-6,1)}`),
+ ()=>card('D',`<div class="glow"></div><div class="brand">LODS<b>CLUB</b></div>
+   <div class="t" style="font-size:104px;width:900px">₹249.<br><b>Free delivery.</b></div><div class="s" style="top:380px;width:700px">Prepaid by UPI or card · Easy replacement · 80+ designs</div>
+   <div class="cta" style="left:64px;top:470px;width:520px;height:110px;background:#d6f25a;color:#17141c">Shop at lodsclub.com</div>
+   ${cs('ds-tanjiro',620,560,240,-8,1)}${cs('op-the-pirates',800,540,240,8,2)}`)
+];
+const SETS={C07:W,C08:V,C09:D};
+SETS[C][I-1]();
+</script></body></html>
