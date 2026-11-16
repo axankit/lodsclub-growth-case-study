@@ -1,0 +1,24 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:B;src:url(../fonts/bricolage-grotesque-latin-800-normal.woff2);font-weight:800}
+@font-face{font-family:F;src:url(../fonts/figtree-latin-700-normal.woff2);font-weight:700}
+html,body{margin:0;background:transparent}
+.c{position:relative;width:1080px;height:1920px;overflow:hidden;font-family:B,sans-serif;color:#f6f6f4}
+.c *{position:absolute;box-sizing:border-box;margin:0}
+.c b,.c br{position:static}
+.shadeT{left:0;right:0;top:0;height:760px;background:linear-gradient(rgba(10,8,12,.85),rgba(10,8,12,0))}
+.shadeM{left:0;right:0;top:620px;height:700px;background:radial-gradient(60% 50% at 50% 50%,rgba(10,8,12,.7),transparent 75%)}
+.h{left:70px;right:70px;text-align:center;font-weight:800;letter-spacing:-.045em;line-height:.92}
+.h b{color:#d6f25a}
+.sm{left:0;right:0;text-align:center;font-family:F;font-weight:700;font-size:46px;color:#e8e3ea}
+.mark{left:0;right:0;text-align:center;font-weight:800;font-size:170px;letter-spacing:-.06em}.mark b{color:#e5262d}
+.cta{left:170px;right:170px;height:140px;border-radius:99px;background:#d6f25a;color:#17141c;font-size:58px;font-weight:800;display:flex;align-items:center;justify-content:center;letter-spacing:-.03em}
+.end{inset:0;background:rgba(14,11,16,.72)}
+</style></head><body><div class="c" id="c"></div><script>
+const k=new URLSearchParams(location.search).get('k');const c=document.getElementById('c');
+const T={
+ a:`<div class="shadeT"></div><div class="h" style="top:280px;font-size:96px">Anime metal cases</div><div class="h" style="top:400px;font-size:260px"><b>₹249</b></div><div class="sm" style="top:650px;text-decoration:line-through;color:#bdb6c2">MRP ₹499</div>`,
+ b:`<div class="shadeM"></div><div class="h" style="top:820px;font-size:120px">80+ designs.<br><b>One frame each.</b></div>`,
+ c:`<div class="shadeT"></div><div class="h" style="top:290px;font-size:104px">Glossy <b>metal back</b></div><div class="sm" style="top:420px">Made for 14 phone brands</div>`,
+ d:`<div class="end"></div><div class="mark" style="top:560px">LODS<b>CLUB</b></div><div class="h" style="top:800px;font-size:92px">₹249 · <b>Free delivery</b></div><div class="sm" style="top:930px">Prepaid UPI · Easy replacement</div><div class="cta" style="top:1060px">Shop at lodsclub.com</div>`};
+c.innerHTML=T[k];
+</script></body></html>
